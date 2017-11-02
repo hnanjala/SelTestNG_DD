@@ -29,7 +29,7 @@ import java.io.File;
 import java.io.IOException;
 
 
-public class CSROrder {
+public class BOPIS_CSROrder {
 	
 	public ObjectMap objMap;
 	public GenericFunctions func;
@@ -184,3 +184,4 @@ public void CSR_Order() throws Exception
 
 
 }
+

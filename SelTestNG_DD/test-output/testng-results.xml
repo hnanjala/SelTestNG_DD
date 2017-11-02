@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="86863" started-at="2017-11-02T19:14:12Z" finished-at="2017-11-02T19:15:39Z">
+  <suite name="Default suite" duration-ms="113440" started-at="2017-11-02T19:58:23Z" finished-at="2017-11-02T20:00:17Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="86863" started-at="2017-11-02T19:14:12Z" finished-at="2017-11-02T19:15:39Z">
+    <test name="Default test" duration-ms="113440" started-at="2017-11-02T19:58:23Z" finished-at="2017-11-02T20:00:17Z">
       <class name="tests.CSROrder">
-        <test-method status="PASS" signature="Setup()[pri:0, instance:tests.CSROrder@523884b2]" name="Setup" is-config="true" duration-ms="2395" started-at="2017-11-02T15:14:12Z" finished-at="2017-11-02T15:14:15Z">
+        <test-method status="PASS" signature="Setup()[pri:0, instance:tests.CSROrder@523884b2]" name="Setup" is-config="true" duration-ms="2232" started-at="2017-11-02T15:58:23Z" finished-at="2017-11-02T15:58:25Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Setup -->
-        <test-method status="PASS" signature="CSR_Order()[pri:0, instance:tests.CSROrder@523884b2]" name="CSR_Order" duration-ms="84444" started-at="2017-11-02T15:14:15Z" finished-at="2017-11-02T15:15:39Z">
+        <test-method status="PASS" signature="CSR_Order()[pri:0, instance:tests.CSROrder@523884b2]" name="CSR_Order" duration-ms="111190" started-at="2017-11-02T15:58:25Z" finished-at="2017-11-02T16:00:17Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CSR_Order -->
