@@ -42,10 +42,10 @@ public class CSROrder {
 	
 	@BeforeClass
 	public void Setup() throws IOException{
-		objMap=new ObjectMap("C:\\Users\\hemar\\workspace\\SelTestNG_DD\\UI Map\\EOM.properties");
+		objMap=new ObjectMap("C:\\Users\\hemar\\git\\SelTestNG_DD\\UI Map\\EOM.properties");
 		objExcel=new ExcelUtilities();
 		func=new GenericFunctions();
-		testData=objExcel.readExcel("C:\\Users\\hemar\\workspace\\SelTestNG_DD\\TestData","TestDataFile.xlsx","TestData_Sheet");
+		testData=objExcel.readExcel("C:\\Users\\hemar\\git\\SelTestNG_DD\\TestData","TestDataFile.xlsx","TestData_Sheet");
 		System.setProperty("webdriver.chrome.driver",objMap.getValue("chromeDriverPath"));
 		ChromeOptions options=new ChromeOptions();
 		options.addArguments("--incognito");
@@ -139,6 +139,7 @@ public void CSR_Order() throws Exception
             Thread.sleep(3000);
          //   func.moveToElement(objMap.getLocator("addItemToCart"));
             driver.findElement(objMap.getLocator("addItemToCart")).click();
+            wait.until(ExpectedConditions.elementToBeClickable(objMap.getLocator("itemSearchByKeyword")));
 
 				if (!((i+1)==row))
 				{
@@ -147,10 +148,24 @@ public void CSR_Order() throws Exception
 					System.out.println("Adding remaining items to the cart");
 					continue addLine;
 				}
-
 				}
-				
+				else
+				{
+					Thread.sleep(5000);
+				}
 				}//for loop close
+				
+				driver.findElement(objMap.getLocator("checkout")).click();
+				wait.until(ExpectedConditions.elementToBeClickable(objMap.getLocator("customerSearch_Registered")));
+				driver.findElement(objMap.getLocator("customerSearch_Registered")).click();
+				driver.findElement(objMap.getLocator("customerSearch_Registered")).sendKeys("u5926660026p");
+				Thread.sleep(3000);
+				Robot robot=new Robot();
+				robot.keyPress(KeyEvent.VK_ENTER);
+				robot.keyRelease(KeyEvent.VK_ENTER);
+				Thread.sleep(3000);
+				driver.findElement(objMap.getLocator("doneSelectCustomer_Registered")).click();
+						
 	}
 
 
