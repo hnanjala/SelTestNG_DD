@@ -42,7 +42,7 @@ import  java.sql.SQLException;
 public class GenericFunctions {
 	WebDriver driver;
 	TakesScreenshot ts;
-	ObjectMap objMap=new ObjectMap("C:\\Users\\hemar\\workspace\\SelTestNG_DD\\UI Map\\EOM.properties");
+	ObjectMap objMap=new ObjectMap("C:\\Users\\hemar\\git\\SelTestNG_DD\\UI Map\\EOM.properties");
 	//TakeScreenshot --> DONE
 	//Move to elements OR Scroll Into element--> DONE
 	//Select Dropdown Values by Value & by visible text --> DONE
@@ -111,6 +111,18 @@ public class GenericFunctions {
 		robot.mouseRelease(MouseEvent.BUTTON3);
 	}
 	
+	public void keyboardInput() throws Exception
+	{
+		Robot robot=new Robot();
+		robot.keyPress(KeyEvent.VK_ASTERISK);
+		robot.keyRelease(KeyEvent.VK_ASTERISK);
+		robot.mousePress(MouseEvent.BUTTON1);
+		robot.mouseRelease(MouseEvent.BUTTON1);
+		robot.mousePress(MouseEvent.BUTTON2);
+		robot.mouseRelease(MouseEvent.BUTTON2);
+		robot.mousePress(MouseEvent.BUTTON3);
+		robot.mouseRelease(MouseEvent.BUTTON3);
+	}
 	
 	public void Actions(WebDriver driver,WebElement element) throws Exception
 	{
