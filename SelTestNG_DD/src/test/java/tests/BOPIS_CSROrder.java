@@ -5,6 +5,7 @@ import utilities.GenericFunctions;
 import utilities.ObjectMap;
 
 import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
 
 import org.openqa.selenium.By;
 //import org.openqa.selenium.Keys;
@@ -45,7 +46,7 @@ public class BOPIS_CSROrder {
 		objMap=new ObjectMap("C:\\Users\\hemar\\git\\SelTestNG_DD\\UI Map\\EOM.properties");
 		objExcel=new ExcelUtilities();
 		func=new GenericFunctions();
-		testData=objExcel.readExcel("C:\\Users\\hemar\\git\\SelTestNG_DD\\TestData","TestDataFile.xlsx","TestData_Sheet");
+		testData=objExcel.readExcel("C:\\Users\\hemar\\git\\SelTestNG_DD\\TestData","TestDataFile.xlsx","BOPIS_TestData");
 		System.setProperty("webdriver.chrome.driver",objMap.getValue("chromeDriverPath"));
 		ChromeOptions options=new ChromeOptions();
 		options.addArguments("--incognito");
@@ -76,10 +77,10 @@ public void CSR_Order() throws Exception
 				driver.manage().window().maximize();
 				driver.findElement(objMap.getLocator("userName")).clear();
 				driver.findElement(objMap.getLocator("userName")).sendKeys(objMap.getValue("userNameValue"));
-				func.TakeScreenShot("Enter_User_Name",ts);
+				//func.TakeScreenShot("Enter_User_Name",ts);
 				driver.findElement(objMap.getLocator("passWord")).clear();
 				driver.findElement(objMap.getLocator("passWord")).sendKeys(objMap.getValue("passWordValue"));
-				func.TakeScreenShot("Enter_Password",ts);
+				//func.TakeScreenShot("Enter_Password",ts);
 				Thread.sleep(3000);
 				driver.findElement(objMap.getLocator("loginButton")).click();
 				Thread.sleep(10000);
@@ -139,6 +140,7 @@ public void CSR_Order() throws Exception
             Thread.sleep(3000);
          //   func.moveToElement(objMap.getLocator("addItemToCart"));
             driver.findElement(objMap.getLocator("addItemToCart")).click();
+            Thread.sleep(3000);
             wait.until(ExpectedConditions.elementToBeClickable(objMap.getLocator("itemSearchByKeyword")));
 
 				if (!((i+1)==row))
@@ -179,7 +181,12 @@ public void CSR_Order() throws Exception
 				Thread.sleep(3000);
 				driver.findElement(objMap.getLocator("placeOrder")).click();
 				Thread.sleep(7000);
-				func.TakeScreenShot("Order SCreenshot_"+func.getCurrentDateTime(), ts);
+				func.TakeScreenShot(Thread.currentThread().getName()+"_Screenshot_"+func.getCurrentDateTime(), ts);
+				String orderNumRaw=driver.findElement(objMap.getLocator("orderConfirmationMessage")).getText();
+				String[] orderNumarr=orderNumRaw.split(Pattern.quote("("));
+				//System.out.println("Value:"+orderNumarr[1].substring(0, 8));
+				String orderNum=orderNumarr[1].substring(0, 8);
+				objExcel.updateExcel("C:\\Users\\hemar\\git\\SelTestNG_DD\\TestData","TestDataFile.xlsx","BOPIS_TestData", orderNum, i, 7);
 	}
 
 

@@ -5,6 +5,7 @@ import utilities.GenericFunctions;
 import utilities.ObjectMap;
 
 import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
 
 import org.openqa.selenium.By;
 //import org.openqa.selenium.Keys;
@@ -29,7 +30,7 @@ import java.io.File;
 import java.io.IOException;
 
 
-public class CSROrder {
+public class SFS_CSROrder {
 	
 	public ObjectMap objMap;
 	public GenericFunctions func;
@@ -45,7 +46,7 @@ public class CSROrder {
 		objMap=new ObjectMap("C:\\Users\\hemar\\git\\SelTestNG_DD\\UI Map\\EOM.properties");
 		objExcel=new ExcelUtilities();
 		func=new GenericFunctions();
-		testData=objExcel.readExcel("C:\\Users\\hemar\\git\\SelTestNG_DD\\TestData","TestDataFile.xlsx","TestData_Sheet");
+		testData=objExcel.readExcel("C:\\Users\\hemar\\git\\SelTestNG_DD\\TestData","TestDataFile.xlsx","SFS_TestData");
 		System.setProperty("webdriver.chrome.driver",objMap.getValue("chromeDriverPath"));
 		ChromeOptions options=new ChromeOptions();
 		options.addArguments("--incognito");
@@ -76,10 +77,10 @@ public void CSR_Order() throws Exception
 				driver.manage().window().maximize();
 				driver.findElement(objMap.getLocator("userName")).clear();
 				driver.findElement(objMap.getLocator("userName")).sendKeys(objMap.getValue("userNameValue"));
-				func.TakeScreenShot("Enter_User_Name",ts);
+				//func.TakeScreenShot("Enter_User_Name",ts);
 				driver.findElement(objMap.getLocator("passWord")).clear();
 				driver.findElement(objMap.getLocator("passWord")).sendKeys(objMap.getValue("passWordValue"));
-				func.TakeScreenShot("Enter_Password",ts);
+				//func.TakeScreenShot("Enter_Password",ts);
 				Thread.sleep(3000);
 				driver.findElement(objMap.getLocator("loginButton")).click();
 				Thread.sleep(10000);
@@ -120,25 +121,14 @@ public void CSR_Order() throws Exception
 	
 				rb.keyPress(KeyEvent.VK_ENTER);
 				rb.keyRelease(KeyEvent.VK_ENTER);
-				wait.until(ExpectedConditions.elementToBeClickable(objMap.getLocator("pickUpAtStoreRadioButton")));
+				wait.until(ExpectedConditions.elementToBeClickable(objMap.getLocator("shipToAddressRadioButton")));
 					Thread.sleep(3000);			
-                driver.findElement(objMap.getLocator("pickUpAtStoreRadioButton")).click();
+                driver.findElement(objMap.getLocator("shipToAddressRadioButton")).click();
                 
-				wait.until(ExpectedConditions.elementToBeClickable(objMap.getLocator("selectLinkPickUpAtStore")));
-				Thread.sleep(3000);			
-            driver.findElement(objMap.getLocator("selectLinkPickUpAtStore")).click();    
-            Thread.sleep(2000);
-            wait.until(ExpectedConditions.elementToBeClickable(objMap.getLocator("zipCodeSearchField")));
-            driver.findElement(objMap.getLocator("zipCodeSearchField")).click();
-            driver.findElement(objMap.getLocator("zipCodeSearchField")).sendKeys(testData[i][5]);
-            Thread.sleep(3000);
-            driver.findElement(objMap.getLocator("goLocationSearch")).click();
-            Thread.sleep(7000);
-            
-            driver.findElement(By.xpath("//label[text()='"+testData[i][4]+"']/following::span[contains(@id,'olm-button')][text()='PICK UP']")).click();
-            Thread.sleep(3000);
+
          //   func.moveToElement(objMap.getLocator("addItemToCart"));
             driver.findElement(objMap.getLocator("addItemToCart")).click();
+	        Thread.sleep(5000);
             wait.until(ExpectedConditions.elementToBeClickable(objMap.getLocator("itemSearchByKeyword")));
 
 				if (!((i+1)==row))
@@ -179,7 +169,12 @@ public void CSR_Order() throws Exception
 				Thread.sleep(3000);
 				driver.findElement(objMap.getLocator("placeOrder")).click();
 				Thread.sleep(7000);
-				func.TakeScreenShot("Order SCreenshot_"+func.getCurrentDateTime(), ts);
+				func.TakeScreenShot(Thread.currentThread().getName()+"_Screenshot_"+func.getCurrentDateTime(), ts);
+				String orderNumRaw=driver.findElement(objMap.getLocator("orderConfirmationMessage")).getText();
+				String[] orderNumarr=orderNumRaw.split(Pattern.quote("("));
+				//System.out.println("Value:"+orderNumarr[1].substring(0, 8));
+				String orderNum=orderNumarr[1].substring(0, 8);
+				objExcel.updateExcel("C:\\Users\\hemar\\git\\SelTestNG_DD\\TestData","TestDataFile.xlsx","SFS_TestData", orderNum, i, 7);
 	}
 
 
