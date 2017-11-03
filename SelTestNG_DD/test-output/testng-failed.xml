@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
-  <test name="Default test(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <listeners>
+    <listener class-name="utilities.Listeners"/>
+    <listener class-name="utilities.AnnotationTransformer"/>
+  </listeners>
+  <test name="Test(failed)" parallel="true">
     <classes>
+      <class name="tests.BOPIS_CSROrder">
+        <methods>
+          <include name="CSR_Order"/>
+          <include name="Setup"/>
+        </methods>
+      </class> <!-- tests.BOPIS_CSROrder -->
       <class name="tests.CSROrder">
         <methods>
           <include name="CSR_Order"/>
@@ -10,5 +20,5 @@
         </methods>
       </class> <!-- tests.CSROrder -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->
