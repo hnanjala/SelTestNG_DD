@@ -94,7 +94,8 @@ public class GenericFunctions {
 	public String getCurrentDateTime()
 	{
 		Date dt=new Date();
-		DateFormat dtf=new SimpleDateFormat("MM/dd/YYYY hh:mm:ss.S a z");
+		//DateFormat dtf=new SimpleDateFormat("MM/dd/YYYY hh:mm:ss.S a z");
+		DateFormat dtf=new SimpleDateFormat("MM_dd_YYYY_hh mm ss a z");
 		return dtf.format(dt);
 	}
 	
