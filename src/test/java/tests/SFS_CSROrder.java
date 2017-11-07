@@ -43,7 +43,7 @@ public class SFS_CSROrder {
 	
 	@BeforeClass
 	public void Setup() throws IOException{
-		objMap=new ObjectMap("C:\\Users\\hemar\\git\\SelTestNG_DD\\UI Map\\EOM.properties");
+		objMap=new ObjectMap("C:\\Users\\hemar\\Jenkins_Workspace\\Project Workspace\\git\\SelTestNG_DD\\UI Map\\EOM.properties");
 		objExcel=new ExcelUtilities();
 		func=new GenericFunctions();
 		testData=objExcel.readExcel("C:\\Users\\hemar\\git\\SelTestNG_DD\\TestData","TestDataFile.xlsx","SFS_TestData");

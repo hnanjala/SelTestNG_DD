@@ -42,7 +42,7 @@ import  java.sql.SQLException;
 public class GenericFunctions {
 	WebDriver driver;
 	TakesScreenshot ts;
-	ObjectMap objMap=new ObjectMap("C:\\Users\\hemar\\git\\SelTestNG_DD\\UI Map\\EOM.properties");
+	ObjectMap objMap=new ObjectMap("C:\\Users\\hemar\\Jenkins_Workspace\\Project Workspace\\git\\SelTestNG_DD\\UI Map\\EOM.properties");
 	//TakeScreenshot --> DONE
 	//Move to elements OR Scroll Into element--> DONE
 	//Select Dropdown Values by Value & by visible text --> DONE
