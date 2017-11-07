@@ -43,10 +43,10 @@ public class STS_CSROrder {
 	
 	@BeforeClass
 	public void Setup() throws IOException{
-		objMap=new ObjectMap("C:\\Users\\hemar\\git\\SelTestNG_DD\\UI Map\\EOM.properties");
+		objMap=new ObjectMap("C:\\Users\\hemar\\Jenkins_Workspace\\Project Workspace\\git\\SelTestNG_DD\\UI Map\\EOM.properties");
 		objExcel=new ExcelUtilities();
 		func=new GenericFunctions();
-		testData=objExcel.readExcel("C:\\Users\\hemar\\Jenkins_Workspace\\Project Workspace\\Jenkins_Workspace\\Project Workspace\\git\\SelTestNG_DD\\TestData","TestDataFile.xlsx","STS_TestData");
+		testData=objExcel.readExcel("C:\\Users\\hemar\\Jenkins_Workspace\\Project Workspace\\git\\SelTestNG_DD\\TestData","TestDataFile.xlsx","STS_TestData");
 		System.setProperty("webdriver.chrome.driver",objMap.getValue("chromeDriverPath"));
 		ChromeOptions options=new ChromeOptions();
 		options.addArguments("--incognito");
