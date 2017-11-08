@@ -38,7 +38,7 @@ public class SFS_CSROrder {
 	public ObjectMap objMap;
 	public GenericFunctions func;
 	ExcelUtilities objExcel;
-	WebDriver driver;
+	public WebDriver driver;
 	WebDriverWait wait;
 	public TakesScreenshot ts;
 	String[][] testData;
@@ -180,12 +180,6 @@ public void CSR_Order() throws Exception
 				//System.out.println("Value:"+orderNumarr[1].substring(0, 8));
 				String orderNum=orderNumarr[1].substring(0, 8);
 				objExcel.updateExcel("C:\\Users\\hemar\\Jenkins_Workspace\\Project Workspace\\git\\SelTestNG_DD\\TestData","TestDataFile.xlsx","SFS_TestData", orderNum, i, 7);
-	}
-	
-	@AfterMethod
-	public void Screenshots() throws Exception
-	{
-	func.Capture_Screenshot(result, ts);
 	}
 
 	@AfterClass

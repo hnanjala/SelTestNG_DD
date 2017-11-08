@@ -38,7 +38,7 @@ public class STS_CSROrder {
 	public ObjectMap objMap;
 	public GenericFunctions func;
 	ExcelUtilities objExcel;
-	WebDriver driver;
+	public WebDriver driver;
 	WebDriverWait wait;
 	public TakesScreenshot ts;
 	String[][] testData;
@@ -193,12 +193,6 @@ public void CSR_Order() throws Exception
 				objExcel.updateExcel("C:\\Users\\hemar\\Jenkins_Workspace\\Project Workspace\\git\\SelTestNG_DD\\TestData","TestDataFile.xlsx","STS_TestData", orderNum, i, 7);
 	}
 	
-	@AfterMethod
-	public void Screenshots() throws Exception
-	{
-	func.Capture_Screenshot(result, ts);
-	}
-
 	
 	@AfterClass
 	public void teardown(){
