@@ -196,6 +196,30 @@ public void CSR_Order() throws Exception
 				objExcel.updateExcel("C:\\Users\\hemar\\Jenkins_Workspace\\Project Workspace\\git\\SelTestNG_DD\\TestData","TestDataFile.xlsx","BOPIS_TestData", orderNum, i, 7);
 	}
 	
+	@AfterMethod
+	public void Capture_Screenshot(ITestResult result) throws Exception 
+	{
+		 
+		// Call method to capture screenshot
+		File source=ts.getScreenshotAs(OutputType.FILE);
+
+		 
+		// Copy files to specific location here it will save all screenshot in our project home directory and
+		// result.getName() will return name of test case so that screenshot name will be same
+		if(result.getStatus()==1) 
+		{
+			FileUtils.copyFile(source, new File("./Execution Reports/Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_PASS.png"));
+			//test.addScreenCaptureFromPath("../Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_PASS.png");
+		}
+		else
+		{
+			FileUtils.copyFile(source, new File("./Execution Reports/Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_FAIL.png"));
+			//test.addScreenCaptureFromPath("../Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_FAIL.png");
+		}
+		System.out.println("Screenshot has been captured for the test"+result.getName());
+		//test.addScreenCaptureFromPath("../Screenshots/"+result.getName()+".png");
+	}
+	
 	@AfterClass
 	public void teardown() throws Exception{
 		//func.Capture_Screenshot(result, ts);
