@@ -169,9 +169,10 @@ public void CSR_Order() throws Exception
 				driver.findElement(objMap.getLocator("customerSearch_Registered")).click();
 				driver.findElement(objMap.getLocator("customerSearch_Registered")).sendKeys("u5926660026p");
 				Thread.sleep(3000);
-				Robot robot=new Robot();
-				robot.keyPress(KeyEvent.VK_ENTER);
-				robot.keyRelease(KeyEvent.VK_ENTER);
+//				Robot robot=new Robot();
+//				robot.keyPress(KeyEvent.VK_ENTER);
+//				robot.keyRelease(KeyEvent.VK_ENTER);
+			    func.clickUsingSikuli("C:\\Users\\hemar\\Jenkins_Workspace\\Project Workspace\\git\\SelTestNG_DD\\TestData\\Images_Sikuli\\RegisteredCustomer_u5926660026p.PNG");
 				Thread.sleep(5000);
 				driver.findElement(objMap.getLocator("doneSelectCustomer_Registered")).click();
 				Thread.sleep(5000);
