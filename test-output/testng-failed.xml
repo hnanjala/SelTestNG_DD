@@ -1,14 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
-  <test name="Default test(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <listeners>
+    <listener class-name="utilities.Listeners"/>
+    <listener class-name="utilities.AnnotationTransformer"/>
+  </listeners>
+  <test name="Test(failed)">
     <classes>
       <class name="tests.SFS_CSROrder">
         <methods>
           <include name="Setup"/>
-          <include name="CSR_Order"/>
+          <include name="Screenshots"/>
         </methods>
       </class> <!-- tests.SFS_CSROrder -->
+      <class name="tests.STS_CSROrder">
+        <methods>
+          <include name="Screenshots"/>
+          <include name="CSR_Order"/>
+          <include name="Setup"/>
+        </methods>
+      </class> <!-- tests.STS_CSROrder -->
+      <class name="tests.BOPIS_CSROrder">
+        <methods>
+          <include name="CSR_Order"/>
+          <include name="Screenshots"/>
+          <include name="Setup"/>
+        </methods>
+      </class> <!-- tests.BOPIS_CSROrder -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

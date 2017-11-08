@@ -18,8 +18,11 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import org.testng.ITestResult;
 
 import org.apache.commons.io.FileUtils;
 
@@ -37,9 +40,10 @@ public class SFS_CSROrder {
 	ExcelUtilities objExcel;
 	WebDriver driver;
 	WebDriverWait wait;
-	TakesScreenshot ts;
+	public TakesScreenshot ts;
 	String[][] testData;
 	public int i,j,row,col;
+	public ITestResult result;
 	
 	@BeforeClass
 	public void Setup() throws IOException{
@@ -136,6 +140,7 @@ public void CSR_Order() throws Exception
 				if (testData[i][0]==testData[i+1][0])
 				{
 					System.out.println("Adding remaining items to the cart");
+					Thread.sleep(5000);
 					continue addLine;
 				}
 				}
@@ -176,6 +181,17 @@ public void CSR_Order() throws Exception
 				String orderNum=orderNumarr[1].substring(0, 8);
 				objExcel.updateExcel("C:\\Users\\hemar\\Jenkins_Workspace\\Project Workspace\\git\\SelTestNG_DD\\TestData","TestDataFile.xlsx","SFS_TestData", orderNum, i, 7);
 	}
+	
+	@AfterMethod
+	public void Screenshots() throws Exception
+	{
+	func.Capture_Screenshot(result, ts);
+	}
 
+	@AfterClass
+	public void teardown(){
+		driver.close();
+		driver.quit();
+	}
 
 }

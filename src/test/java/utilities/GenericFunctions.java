@@ -30,6 +30,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.sikuli.script.FindFailed;
 import org.sikuli.script.Pattern;
 import org.sikuli.script.Screen;
+import org.testng.ITestResult;
 import org.sikuli.script.Key;
 
 import  java.sql.Connection;		
@@ -69,6 +70,29 @@ public class GenericFunctions {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	} 
+	}
+	
+	public void Capture_Screenshot(ITestResult result,TakesScreenshot ts) throws Exception 
+	{
+		 
+		// Call method to capture screenshot
+		File source=ts.getScreenshotAs(OutputType.FILE);
+
+		 
+		// Copy files to specific location here it will save all screenshot in our project home directory and
+		// result.getName() will return name of test case so that screenshot name will be same
+		if(result.getStatus()==1) 
+		{
+			FileUtils.copyFile(source, new File("./Execution Reports/Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_PASS.png"));
+			//test.addScreenCaptureFromPath("../Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_PASS.png");
+		}
+		else
+		{
+			FileUtils.copyFile(source, new File("./Execution Reports/Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_FAIL.png"));
+			//test.addScreenCaptureFromPath("../Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_FAIL.png");
+		}
+		System.out.println("Screenshot has been captured for the test"+result.getName());
+		//test.addScreenCaptureFromPath("../Screenshots/"+result.getName()+".png");
 	}
 
 	public void moveToElement (By by) throws Exception
