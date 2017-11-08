@@ -112,6 +112,7 @@ public void CSR_Order() throws Exception
 					driver.findElement(objMap.getLocator("itemTileSearchByItem")).clear();
 					driver.findElement(objMap.getLocator("itemTileSearchByItem")).sendKeys(testData[i][1]);
 					driver.findElement(objMap.getLocator("itemTileSearchByItem")).click();
+					driver.findElement(objMap.getLocator("itemTileSearchByItemSearchIcon")).click();
 					}
 					else
 					{
@@ -121,11 +122,11 @@ public void CSR_Order() throws Exception
 						driver.findElement(objMap.getLocator("itemSearchByKeyword")).clear();
 						driver.findElement(objMap.getLocator("itemSearchByKeyword")).sendKeys(testData[i][1]);
 						driver.findElement(objMap.getLocator("itemSearchByKeyword")).click();	
+						driver.findElement(objMap.getLocator("itemSearchByKeywordSearchIcon")).click();
 					}
-				Robot rb=new Robot();
-	
-				rb.keyPress(KeyEvent.VK_ENTER);
-				rb.keyRelease(KeyEvent.VK_ENTER);
+//				Robot rb=new Robot();
+//				rb.keyPress(KeyEvent.VK_ENTER);
+//				rb.keyRelease(KeyEvent.VK_ENTER);
 				wait.until(ExpectedConditions.elementToBeClickable(objMap.getLocator("pickUpAtStoreRadioButton")));
 					Thread.sleep(3000);			
                 driver.findElement(objMap.getLocator("pickUpAtStoreRadioButton")).click();
