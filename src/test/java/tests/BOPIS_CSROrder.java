@@ -198,7 +198,7 @@ public void CSR_Order() throws Exception
 	@AfterClass
 	public void teardown() throws Exception{
 		//func.Capture_Screenshot(result, ts);
-		driver.close();
+		//driver.close();
 		driver.quit();
 	}
 

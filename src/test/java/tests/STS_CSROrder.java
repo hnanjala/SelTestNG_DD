@@ -196,7 +196,7 @@ public void CSR_Order() throws Exception
 	
 	@AfterClass
 	public void teardown(){
-		driver.close();
+		//driver.close();
 		driver.quit();
 	}
 
