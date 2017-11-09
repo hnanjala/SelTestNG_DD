@@ -188,9 +188,9 @@ public void CSR_Order() throws Exception
 				Thread.sleep(4000);
 				driver.findElement(objMap.getLocator("addGiftCardLabel")).click();
 				driver.findElement(objMap.getLocator("giftCardNum")).click();
-				driver.findElement(objMap.getLocator("giftCardNum")).sendKeys("6006496103999906765");
+				driver.findElement(objMap.getLocator("giftCardNum")).sendKeys("6006496103999906781");
 				driver.findElement(objMap.getLocator("giftCardPin")).click();
-				driver.findElement(objMap.getLocator("giftCardPin")).sendKeys("8145");	
+				driver.findElement(objMap.getLocator("giftCardPin")).sendKeys("2779");	
 				driver.findElement(objMap.getLocator("giftCardAdd")).click();
 				Thread.sleep(3000);
 				driver.findElement(objMap.getLocator("proceedToSummary")).click();
