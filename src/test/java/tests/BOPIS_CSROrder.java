@@ -106,7 +106,7 @@ public void CSR_Order() throws Exception
 				//act.moveToElement(driver.findElement(By.xpath("//div[contains(@id,'ds-itemtile-')]//*[contains(@id,'triggerfield')] [contains(@placeholder,'item description')]"))).click().perform();
 				
 				addLine:
-				for(int i=1;i<row;i++)
+				for(i=1;i<row;i++)
 				{
 					if(i==1)
 					{
@@ -215,7 +215,8 @@ public void CSR_Order() throws Exception
 				String[] orderNumarr=orderNumRaw.split(Pattern.quote("("));
 				//System.out.println("Value:"+orderNumarr[1].substring(0, 8));
 				String orderNum=orderNumarr[1].substring(0, 8);
-				objExcel.updateExcel("C:\\Users\\hemar\\Jenkins_Workspace\\Project Workspace\\git\\SelTestNG_DD\\TestData","TestDataFile.xlsx","BOPIS_TestData", orderNum, i, 7);
+				System.out.println("BOPIS Order#: "+orderNum+" has been created");
+				objExcel.updateExcel("C:\\Users\\hemar\\Jenkins_Workspace\\Project Workspace\\git\\SelTestNG_DD\\TestData","TestDataFile.xlsx","BOPIS_TestData", orderNum, i, 8);
 	}
 	
 	@AfterMethod
