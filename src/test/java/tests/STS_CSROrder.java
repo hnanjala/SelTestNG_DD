@@ -8,12 +8,14 @@ import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 //import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -167,10 +169,18 @@ public void CSR_Order() throws Exception
 				wait.until(ExpectedConditions.elementToBeClickable(objMap.getLocator("customerSearch_Registered")));
 				driver.findElement(objMap.getLocator("customerSearch_Registered")).click();
 				driver.findElement(objMap.getLocator("customerSearch_Registered")).sendKeys("u5926660026p");
+				
+				driver.findElement(objMap.getLocator("customerSearch_Registered")).click();
 				Thread.sleep(3000);
-				Robot robot=new Robot();
-				robot.keyPress(KeyEvent.VK_ENTER);
-				robot.keyRelease(KeyEvent.VK_ENTER);
+				driver.findElement(By.xpath("//label[text()='IDENTIFY REGISTERED CUSTOMER']//following::input[contains(@id,'olm-customersearchcombo')][@placeholder='name, email, phone']/following::div[1]")).click();
+				Actions builder=new Actions(driver);
+				Action seriesofActions=builder.sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).build();
+				seriesofActions.perform();
+				
+//				Thread.sleep(3000);
+//				Robot robot=new Robot();
+//				robot.keyPress(KeyEvent.VK_ENTER);
+//				robot.keyRelease(KeyEvent.VK_ENTER);
 				Thread.sleep(5000);
 				driver.findElement(objMap.getLocator("doneSelectCustomer_Registered")).click();
 				Thread.sleep(5000);
