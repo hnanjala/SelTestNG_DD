@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
@@ -286,7 +287,17 @@ String username = "EOM2015";
 		//screen.type("Test");
 
 	}
-
+	
+	public boolean isElementPresent(By by) {
+		 try {
+		   driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		   driver.findElement(by);
+		   return true;
+		 } catch (Exception e) {
+		   return false;
+		 }
+		}
+	
 }
 
 
