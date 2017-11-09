@@ -207,7 +207,8 @@ public void CSR_Order() throws Exception
 				Thread.sleep(2000);
 				driver.findElement(objMap.getLocator("xClose")).click();
 				Thread.sleep(5000);
-				objExcel.updateExcel("C:\\Users\\hemar\\Jenkins_Workspace\\Project Workspace\\git\\SelTestNG_DD\\TestData","TestDataFile.xlsx","STS_TestData", orderNum, i, 7);
+				//System.out.println("row: "+i);
+				objExcel.updateExcel("C:\\Users\\hemar\\Jenkins_Workspace\\Project Workspace\\git\\SelTestNG_DD\\TestData","TestDataFile.xlsx","STS_TestData", orderNum, i-1, 8);
 
 	}
 	
