@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="130309" started-at="2017-11-09T16:40:26Z" finished-at="2017-11-09T16:42:37Z">
+  <suite name="Default suite" duration-ms="126469" started-at="2017-11-09T20:03:54Z" finished-at="2017-11-09T20:06:00Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="130309" started-at="2017-11-09T16:40:26Z" finished-at="2017-11-09T16:42:37Z">
+    <test name="Default test" duration-ms="126469" started-at="2017-11-09T20:03:54Z" finished-at="2017-11-09T20:06:00Z">
       <class name="tests.BOPIS_CSROrder">
-        <test-method status="PASS" signature="Setup()[pri:0, instance:tests.BOPIS_CSROrder@7085bdee]" name="Setup" is-config="true" duration-ms="2498" started-at="2017-11-09T11:40:27Z" finished-at="2017-11-09T11:40:29Z">
+        <test-method status="PASS" signature="Setup()[pri:0, instance:tests.BOPIS_CSROrder@7085bdee]" name="Setup" is-config="true" duration-ms="2338" started-at="2017-11-09T15:03:54Z" finished-at="2017-11-09T15:03:56Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Setup -->
-        <test-method status="PASS" signature="CSR_Order()[pri:0, instance:tests.BOPIS_CSROrder@7085bdee]" name="CSR_Order" duration-ms="126194" started-at="2017-11-09T11:40:29Z" finished-at="2017-11-09T11:42:35Z">
+        <test-method status="PASS" signature="CSR_Order()[pri:0, instance:tests.BOPIS_CSROrder@7085bdee]" name="CSR_Order" duration-ms="121929" started-at="2017-11-09T15:03:56Z" finished-at="2017-11-09T15:05:58Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CSR_Order -->
-        <test-method status="PASS" signature="Capture_Screenshot(org.testng.ITestResult)[pri:0, instance:tests.BOPIS_CSROrder@7085bdee]" name="Capture_Screenshot" is-config="true" duration-ms="300" started-at="2017-11-09T11:42:35Z" finished-at="2017-11-09T11:42:36Z">
+        <test-method status="PASS" signature="Capture_Screenshot(org.testng.ITestResult)[pri:0, instance:tests.BOPIS_CSROrder@7085bdee]" name="Capture_Screenshot" is-config="true" duration-ms="616" started-at="2017-11-09T15:05:58Z" finished-at="2017-11-09T15:05:59Z">
           <params>
             <param index="0">
               <value>
@@ -26,7 +26,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Capture_Screenshot -->
-        <test-method status="PASS" signature="teardown()[pri:0, instance:tests.BOPIS_CSROrder@7085bdee]" name="teardown" is-config="true" duration-ms="1298" started-at="2017-11-09T11:42:36Z" finished-at="2017-11-09T11:42:37Z">
+        <test-method status="PASS" signature="teardown()[pri:0, instance:tests.BOPIS_CSROrder@7085bdee]" name="teardown" is-config="true" duration-ms="1571" started-at="2017-11-09T15:05:59Z" finished-at="2017-11-09T15:06:00Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->

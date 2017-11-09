@@ -179,8 +179,9 @@ public void CSR_Order() throws Exception
 				driver.findElement(objMap.getLocator("customerSearch_Registered")).sendKeys("u5926660026p");
 				driver.findElement(objMap.getLocator("customerSearch_Registered")).click();
 				Thread.sleep(3000);
+				driver.findElement(By.xpath("//label[text()='IDENTIFY REGISTERED CUSTOMER']//following::input[contains(@id,'olm-customersearchcombo')][@placeholder='name, email, phone']/following::div[1]")).click();
 				Actions builder=new Actions(driver);
-				Action seriesofActions=builder.moveToElement(driver.findElement(By.xpath("//label[text()='IDENTIFY REGISTERED CUSTOMER']//following::input[contains(@id,'olm-customersearchcombo')][@placeholder='name, email, phone']/following::div[1]"))).click().keyDown(Keys.ARROW_DOWN).keyUp(Keys.ARROW_DOWN).keyDown(Keys.ENTER).keyUp(Keys.ENTER).build();
+				Action seriesofActions=builder.sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).build();
 				seriesofActions.perform();
 				
 //				Robot robot=new Robot();
