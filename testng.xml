@@ -7,10 +7,10 @@
 	</listeners>
 	<test name="Test" parallel="false" thread-count="5">
 		<classes>
+				<class name="tests.SFS_CSROrder" />
 				<class name="tests.BOPIS_CSROrder" />
-	<!-- 		<class name="tests.STS_CSROrder" />
-		<class name="tests.SFS_CSROrder" />
-			<class name="tests.CSROrder" />
+				<class name="tests.STS_CSROrder" />
+	<!-- 		<class name="tests.CSROrder" />
 			<class name="tests.SampleCase1"/> <class name="tests.SampleCase2"/> -->
 		</classes>
 	</test> <!-- Test -->
