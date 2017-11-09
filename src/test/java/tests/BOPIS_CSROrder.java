@@ -175,22 +175,15 @@ public void CSR_Order() throws Exception
 				wait.until(ExpectedConditions.elementToBeClickable(objMap.getLocator("customerSearch_Registered")));
 				driver.findElement(objMap.getLocator("customerSearch_Registered")).click();
 				driver.findElement(objMap.getLocator("customerSearch_Registered")).sendKeys("u5926660026p");
-				Thread.sleep(3000);
-
-				if(func.isElementPresent(By.xpath("//*[contains(@class,'x-pickerfield-open)")))
-				{
-                System.out.println("Pik section is visible");
-				}
-				else
-				{
-					driver.findElement(By.xpath("//label[text()='IDENTIFY REGISTERED CUSTOMER']//following::input[contains(@id,'olm-customersearchcombo')][@placeholder='name, email, phone']/following::div[1]")).click();
-					Thread.sleep(2000);
-				}
+				Thread.sleep(5000);
 				Robot robot=new Robot();
 				robot.keyPress(KeyEvent.VK_ENTER);
 				robot.keyRelease(KeyEvent.VK_ENTER);
+				driver.findElement(By.xpath("//label[text()='IDENTIFY REGISTERED CUSTOMER']//following::input[contains(@id,'olm-customersearchcombo')][@placeholder='name, email, phone']/following::div[1]")).click();
+				Thread.sleep(2000);
+				robot.keyPress(KeyEvent.VK_ENTER);
+				robot.keyRelease(KeyEvent.VK_ENTER
 			    //func.clickUsingSikuli("C:\\Users\\hemar\\Jenkins_Workspace\\Project Workspace\\git\\SelTestNG_DD\\TestData\\Images_Sikuli\\RegisteredCustomer_u5926660026p.PNG");
-			    
 				Thread.sleep(5000);
 				driver.findElement(objMap.getLocator("doneSelectCustomer_Registered")).click();
 				Thread.sleep(5000);
