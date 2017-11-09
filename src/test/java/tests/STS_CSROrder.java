@@ -204,12 +204,40 @@ public void CSR_Order() throws Exception
 				String orderNum=orderNumarr[1].substring(0, 8);
 				System.out.println("STS Order#: "+orderNum+" has been created");
 				objExcel.updateExcel("C:\\Users\\hemar\\Jenkins_Workspace\\Project Workspace\\git\\SelTestNG_DD\\TestData","TestDataFile.xlsx","STS_TestData", orderNum, i, 8);
+				driver.findElement(objMap.getLocator("orderConfirmSaveButton")).click();
+				Thread.sleep(2000);
+				driver.findElement(objMap.getLocator("xClose")).click();
+				Thread.sleep(2000);
+	}
+	
+	@AfterMethod
+	public void Capture_Screenshot(ITestResult result) throws Exception 
+	{
+		 
+		// Call method to capture screenshot
+		File source=ts.getScreenshotAs(OutputType.FILE);
+
+		 
+		// Copy files to specific location here it will save all screenshot in our project home directory and
+		// result.getName() will return name of test case so that screenshot name will be same
+		if(result.getStatus()==1) 
+		{
+			FileUtils.copyFile(source, new File("./Execution Reports/Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_PASS.png"));
+			//test.addScreenCaptureFromPath("../Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_PASS.png");
+		}
+		else
+		{
+			FileUtils.copyFile(source, new File("./Execution Reports/Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_FAIL.png"));
+			//test.addScreenCaptureFromPath("../Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_FAIL.png");
+		}
+		System.out.println("Screenshot has been captured for the test"+result.getName());
+		//test.addScreenCaptureFromPath("../Screenshots/"+result.getName()+".png");
 	}
 	
 	
 	@AfterClass
 	public void teardown(){
-		//driver.close();
+		driver.close();
 		driver.quit();
 	}
 

@@ -217,6 +217,10 @@ public void CSR_Order() throws Exception
 				String orderNum=orderNumarr[1].substring(0, 8);
 				System.out.println("BOPIS Order#: "+orderNum+" has been created");
 				objExcel.updateExcel("C:\\Users\\hemar\\Jenkins_Workspace\\Project Workspace\\git\\SelTestNG_DD\\TestData","TestDataFile.xlsx","BOPIS_TestData", orderNum, i, 8);
+				driver.findElement(objMap.getLocator("orderConfirmSaveButton")).click();
+				Thread.sleep(2000);
+				driver.findElement(objMap.getLocator("xClose")).click();
+				Thread.sleep(2000);
 	}
 	
 	@AfterMethod
@@ -246,7 +250,7 @@ public void CSR_Order() throws Exception
 	@AfterClass
 	public void teardown() throws Exception{
 		//func.Capture_Screenshot(result, ts);
-		//driver.close();
+		driver.close();
 		driver.quit();
 	}
 
