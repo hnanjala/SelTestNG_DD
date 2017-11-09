@@ -207,7 +207,7 @@ public void CSR_Order() throws Exception
 				driver.findElement(objMap.getLocator("orderConfirmSaveButton")).click();
 				Thread.sleep(2000);
 				driver.findElement(objMap.getLocator("xClose")).click();
-				Thread.sleep(2000);
+				Thread.sleep(5000);
 	}
 	
 	@AfterMethod
