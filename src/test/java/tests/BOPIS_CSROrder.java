@@ -175,7 +175,8 @@ public void CSR_Order() throws Exception
 				wait.until(ExpectedConditions.elementToBeClickable(objMap.getLocator("customerSearch_Registered")));
 				driver.findElement(objMap.getLocator("customerSearch_Registered")).click();
 				driver.findElement(objMap.getLocator("customerSearch_Registered")).sendKeys("u5926660026p");
-				Thread.sleep(5000);
+				driver.findElement(By.xpath("//label[text()='IDENTIFY REGISTERED CUSTOMER']//following::input[contains(@id,'olm-customersearchcombo')][@placeholder='name, email, phone']/following::div[1]")).click();
+				Thread.sleep(2000);
 				Robot robot=new Robot();
 				robot.keyPress(KeyEvent.VK_ENTER);
 				robot.keyRelease(KeyEvent.VK_ENTER);
