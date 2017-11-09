@@ -141,8 +141,15 @@ public void CSR_Order() throws Exception
             Thread.sleep(3000);
             driver.findElement(objMap.getLocator("goLocationSearch")).click();
             Thread.sleep(7000);
-            
+            if (driver.findElement(By.xpath("//label[text()='"+testData[i][4]+"']/following::span[contains(@id,'olm-button')][text()='PICK UP']")).isEnabled())
+            {
             driver.findElement(By.xpath("//label[text()='"+testData[i][4]+"']/following::span[contains(@id,'olm-button')][text()='PICK UP']")).click();
+            }
+            else
+            {
+            	System.out.println("Pick UP button is disabled for the item: "+testData[i][4]);
+            	continue addLine;
+            }
             Thread.sleep(3000);
          //   func.moveToElement(objMap.getLocator("addItemToCart"));
             driver.findElement(objMap.getLocator("addItemToCart")).click();
