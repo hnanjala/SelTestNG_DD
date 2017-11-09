@@ -176,7 +176,7 @@ public void CSR_Order() throws Exception
 				driver.findElement(objMap.getLocator("customerSearch_Registered")).click();
 				driver.findElement(objMap.getLocator("customerSearch_Registered")).sendKeys("u5926660026p");
 				driver.findElement(objMap.getLocator("customerSearch_Registered")).click();
-				Thread.sleep(2000);
+				Thread.sleep(5000);
 				Robot robot=new Robot();
 				robot.delay(2000);
 				robot.keyPress(KeyEvent.VK_ENTER);
