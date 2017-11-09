@@ -155,8 +155,7 @@ public class GenericFunctions {
     Actions builder=new Actions(driver);
     Action seriesofActions=builder.moveToElement(element).build();
     //Action seriesofActionsExample=builder.moveToElement(element).keyDown(Keys.SHIFT).sendKeys("SEND SOME TEXT").keyUp(Keys.SHIFT).doubleClick().contextClick().build();
-    builder.moveToElement(element).
-    seriesofActions.perform();
+       seriesofActions.perform();
 	}
 	
 	public WebDriver dynamicBrowserSelection(String browsername)
