@@ -182,7 +182,7 @@ public void CSR_Order() throws Exception
 				driver.findElement(By.xpath("//label[text()='IDENTIFY REGISTERED CUSTOMER']//following::input[contains(@id,'olm-customersearchcombo')][@placeholder='name, email, phone']/following::div[1]")).click();
 				Thread.sleep(2000);
 				robot.keyPress(KeyEvent.VK_ENTER);
-				robot.keyRelease(KeyEvent.VK_ENTER
+				robot.keyRelease(KeyEvent.VK_ENTER);
 			    //func.clickUsingSikuli("C:\\Users\\hemar\\Jenkins_Workspace\\Project Workspace\\git\\SelTestNG_DD\\TestData\\Images_Sikuli\\RegisteredCustomer_u5926660026p.PNG");
 				Thread.sleep(5000);
 				driver.findElement(objMap.getLocator("doneSelectCustomer_Registered")).click();
