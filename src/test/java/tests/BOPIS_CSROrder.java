@@ -67,9 +67,8 @@ public class BOPIS_CSROrder {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		wait=new WebDriverWait(driver,15);
 		ts=(TakesScreenshot)driver;
-		report=func.extentReportInvoke(driver.getClass().getName(), "BOPIS CSR Order");
-		System.out.println("Thread Name: "+Thread.currentThread().getName()+"Class Name: "+driver.getClass().getName());
-		
+		report=func.extentReportInvoke("Buy Online Pick Up in Store - CSR order", "BOPIS CSR Order");
+		//System.out.println("Thread Name: "+Thread.currentThread().getName()+"Class Name: "+driver.getClass().getName());
 		
 		
 		
@@ -210,9 +209,9 @@ public void CSR_Order() throws Exception
 				Thread.sleep(4000);
 				driver.findElement(objMap.getLocator("addGiftCardLabel")).click();
 				driver.findElement(objMap.getLocator("giftCardNum")).click();
-				driver.findElement(objMap.getLocator("giftCardNum")).sendKeys("6006496103999906781");
+				driver.findElement(objMap.getLocator("giftCardNum")).sendKeys("6006496103999906724");
 				driver.findElement(objMap.getLocator("giftCardPin")).click();
-				driver.findElement(objMap.getLocator("giftCardPin")).sendKeys("2779");	
+				driver.findElement(objMap.getLocator("giftCardPin")).sendKeys("4293");	
 				driver.findElement(objMap.getLocator("giftCardAdd")).click();
 				Thread.sleep(3000);
 				driver.findElement(objMap.getLocator("proceedToSummary")).click();
