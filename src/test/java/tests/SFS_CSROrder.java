@@ -214,12 +214,12 @@ public void CSR_Order() throws Exception
 		// result.getName() will return name of test case so that screenshot name will be same
 		if(result.getStatus()==1) 
 		{
-			FileUtils.copyFile(source, new File("./Execution Reports/Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_PASS.png"));
+			FileUtils.copyFile(source, new File("./test-output/Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_PASS.png"));
 			//test.addScreenCaptureFromPath("../Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_PASS.png");
 		}
 		else
 		{
-			FileUtils.copyFile(source, new File("./Execution Reports/Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_FAIL.png"));
+			FileUtils.copyFile(source, new File("./test-output/Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_FAIL.png"));
 			//test.addScreenCaptureFromPath("../Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_FAIL.png");
 		}
 		System.out.println("Screenshot has been captured for the test"+result.getName());

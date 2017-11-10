@@ -64,7 +64,7 @@ public class GenericFunctions {
 	{
 	File src=ts1.getScreenshotAs(OutputType.FILE);
 	try {
-		FileUtils.copyFile(src,  new File("./Execution Reports/Screenshots/"+scrshotfilename+".png"));
+		FileUtils.copyFile(src,  new File("./test-output/Screenshots/"+scrshotfilename+".png"));
 		//System.out.println("Thread.currentThread().getName(): "+Thread.currentThread().getName());
 		//System.out.println("Thread.currentThread().getStackTrace()[1].getMethodName(): "+Thread.currentThread().getStackTrace()[1].getMethodName());
 	} catch (IOException e) {
@@ -84,12 +84,12 @@ public class GenericFunctions {
 		// result.getName() will return name of test case so that screenshot name will be same
 		if(result.getStatus()==1) 
 		{
-			FileUtils.copyFile(source, new File("./Execution Reports/Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_PASS.png"));
+			FileUtils.copyFile(source, new File("./test-output/Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_PASS.png"));
 			//test.addScreenCaptureFromPath("../Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_PASS.png");
 		}
 		else
 		{
-			FileUtils.copyFile(source, new File("./Execution Reports/Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_FAIL.png"));
+			FileUtils.copyFile(source, new File("./test-output/Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_FAIL.png"));
 			//test.addScreenCaptureFromPath("../Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_FAIL.png");
 		}
 		System.out.println("Screenshot has been captured for the test"+result.getName());
