@@ -50,6 +50,8 @@ public class GenericFunctions {
 	WebDriver driver;
 	TakesScreenshot ts;
 	public ObjectMap objMap=new ObjectMap("C:\\Users\\hemar\\Jenkins_Workspace\\Project Workspace\\git\\SelTestNG_DD\\UI Map\\EOM.properties");
+	ExtentReports extentrep;
+	ExtentTest Test;
 	//TakeScreenshot --> DONE
 	//Move to elements OR Scroll Into element--> DONE
 	//Select Dropdown Values by Value & by visible text --> DONE
@@ -303,12 +305,11 @@ String username = "EOM2015";
 		 }
 		}
 	
-	public ExtentTest extentReportInvoke(String testName, String description){
-		ExtentReports extentrep;
-		ExtentTest Test;
+	public ExtentReports extentReportInvoke(){
+
 		extentrep=ExtentReportManager.GetExtent(objMap.getValue("extentReportFilePath"), objMap.getValue("extentReportDocumentTitle"), objMap.getValue("extentReportName"));
-		Test=extentrep.createTest(testName, description);
-		return Test;
+		//Test=extentrep.createTest(testName, description);
+		return extentrep;
 		
 	}
 	

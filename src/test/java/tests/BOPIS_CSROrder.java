@@ -26,6 +26,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 
 import org.apache.commons.io.FileUtils;
@@ -49,6 +50,7 @@ public class BOPIS_CSROrder {
 	String[][] testData;
 	public int i,j,row,col;
 	public ITestResult result;
+	ExtentReports extent;
 	ExtentTest report;
 	
 	
@@ -67,13 +69,16 @@ public class BOPIS_CSROrder {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		wait=new WebDriverWait(driver,15);
 		ts=(TakesScreenshot)driver;
-		report=func.extentReportInvoke("Buy Online Pick Up in Store - CSR order", "BOPIS CSR Order");
+		
+		extent=func.extentReportInvoke();
+		report=extent.createTest("Buy Online Pick Up in Store - CSR order", "BOPIS CSR Order");
+
 		//System.out.println("Thread Name: "+Thread.currentThread().getName()+"Class Name: "+driver.getClass().getName());
 		
 		
 		
-	//row=testData.length;
-	//col=testData[0].length;
+	row=testData.length;
+	col=testData[0].length;
 	
 	//System.out.println("Row Count: "+row+" ; Column Count: "+col);
 	}
@@ -82,6 +87,8 @@ public class BOPIS_CSROrder {
 	@Test
 public void CSR_Order() throws Exception
 	{
+		
+
 		    driver.navigate().to(objMap.getValue("baseUrl"));
 				try {
 					Thread.sleep(5000);
@@ -99,8 +106,7 @@ public void CSR_Order() throws Exception
 				Thread.sleep(3000);
 				driver.findElement(objMap.getLocator("loginButton")).click();
 				Thread.sleep(10000);
-				report.pass("Able to login successfully");
-									
+								
 			  /*  driver.switchTo().activeElement().click();
 				driver.findElement(objMap.getLocator("selectStore173")).click();
 				TakeScreenShot("SelectStore",ts);
@@ -113,6 +119,9 @@ public void CSR_Order() throws Exception
 				Actions act=new Actions(driver);
 				act.moveToElement(driver.findElement(By.xpath("//div[contains(@id,'ds-itemtile-')]"))).build().perform();
 				//act.moveToElement(driver.findElement(By.xpath("//div[contains(@id,'ds-itemtile-')]//*[contains(@id,'triggerfield')] [contains(@placeholder,'item description')]"))).click().perform();
+				
+			    report.pass("Able to login successfully");
+			    Thread.sleep(3000);
 				
 				addLine:
 				for(i=1;i<row;i++)
@@ -261,7 +270,7 @@ public void CSR_Order() throws Exception
 	@AfterClass
 	public void teardown() throws Exception{
 		//func.Capture_Screenshot(result, ts);
-	
+		extent.flush();
 		driver.close();
 		driver.quit();
 	}
