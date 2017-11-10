@@ -99,6 +99,7 @@ public void CSR_Order() throws Exception
 				Thread.sleep(3000);
 				driver.findElement(objMap.getLocator("loginButton")).click();
 				Thread.sleep(10000);
+				report.pass("Able to login successfully");
 									
 			  /*  driver.switchTo().activeElement().click();
 				driver.findElement(objMap.getLocator("selectStore173")).click();
@@ -260,6 +261,7 @@ public void CSR_Order() throws Exception
 	@AfterClass
 	public void teardown() throws Exception{
 		//func.Capture_Screenshot(result, ts);
+	
 		driver.close();
 		driver.quit();
 	}
