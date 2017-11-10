@@ -26,6 +26,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.ExtentTest;
+
 import org.apache.commons.io.FileUtils;
 
 //import java.awt.AWTException;
@@ -47,6 +49,8 @@ public class BOPIS_CSROrder {
 	String[][] testData;
 	public int i,j,row,col;
 	public ITestResult result;
+	ExtentTest report;
+	
 	
 	@BeforeClass
 	public void Setup() throws IOException{
@@ -63,11 +67,16 @@ public class BOPIS_CSROrder {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		wait=new WebDriverWait(driver,15);
 		ts=(TakesScreenshot)driver;
+		report=func.extentReportInvoke(driver.getClass().getName(), "BOPIS CSR Order");
+		System.out.println("Thread Name: "+Thread.currentThread().getName()+"Class Name: "+driver.getClass().getName());
 		
-	row=testData.length;
-	col=testData[0].length;
+		
+		
+		
+	//row=testData.length;
+	//col=testData[0].length;
 	
-	System.out.println("Row Count: "+row+" ; Column Count: "+col);
+	//System.out.println("Row Count: "+row+" ; Column Count: "+col);
 	}
 	
 	

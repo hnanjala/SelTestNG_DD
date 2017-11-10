@@ -1,6 +1,7 @@
 package utilities;
 
 import utilities.ObjectMap;
+import utilities.ExtentReportManager;
 
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
@@ -32,6 +33,10 @@ import org.sikuli.script.FindFailed;
 import org.sikuli.script.Pattern;
 import org.sikuli.script.Screen;
 import org.testng.ITestResult;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+
 import org.sikuli.script.Key;
 
 import  java.sql.Connection;		
@@ -44,7 +49,7 @@ import  java.sql.SQLException;
 public class GenericFunctions {
 	WebDriver driver;
 	TakesScreenshot ts;
-	ObjectMap objMap=new ObjectMap("C:\\Users\\hemar\\Jenkins_Workspace\\Project Workspace\\git\\SelTestNG_DD\\UI Map\\EOM.properties");
+	public ObjectMap objMap=new ObjectMap("C:\\Users\\hemar\\Jenkins_Workspace\\Project Workspace\\git\\SelTestNG_DD\\UI Map\\EOM.properties");
 	//TakeScreenshot --> DONE
 	//Move to elements OR Scroll Into element--> DONE
 	//Select Dropdown Values by Value & by visible text --> DONE
@@ -297,6 +302,15 @@ String username = "EOM2015";
 		   return false;
 		 }
 		}
+	
+	public ExtentTest extentReportInvoke(String testName, String description){
+		ExtentReports extentrep;
+		ExtentTest Test;
+		extentrep=ExtentReportManager.GetExtent(objMap.getValue("extentReportFilePath"), objMap.getValue("extentReportDocumentTitle"), objMap.getValue("extentReportName"));
+		Test=extentrep.createTest(testName, description);
+		return Test;
+		
+	}
 	
 }
 

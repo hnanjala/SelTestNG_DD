@@ -1,3 +1,5 @@
+
+
 package utilities;
 
 import com.aventstack.extentreports.ExtentReports;
@@ -9,26 +11,26 @@ public class ExtentReportManager {
 	private static ExtentReports extent;
 	private static ExtentTest test;
 	private static ExtentHtmlReporter htmlReporter;
-	private static String filePath = "C:\\Users\\hemar\\Jenkins_Workspace\\Project Workspace\\StoreOpsOrders\\Reports\\extentreport.html";
+	//private static String filePath = "C:\\Users\\hemar\\Jenkins_Workspace\\Project Workspace\\StoreOpsOrders\\Reports\\extentreport.html";
 	
 	
-	public static ExtentReports GetExtent(){
+	public static ExtentReports GetExtent(String FilePath, String DocumentTitle,String ReportName){
 		if (extent != null)
                     return extent; //avoid creating new instance of html file
                 extent = new ExtentReports();		
-		extent.attachReporter(getHtmlReporter());
+		extent.attachReporter(getHtmlReporter(FilePath, DocumentTitle,ReportName));
 		return extent;
 	}
  
-	private static ExtentHtmlReporter getHtmlReporter() {
+	private static ExtentHtmlReporter getHtmlReporter(String FilePath, String DocumentTitle,String ReportName) {
 	
-        htmlReporter = new ExtentHtmlReporter(filePath);
+        htmlReporter = new ExtentHtmlReporter(FilePath);
 		
 	    // make the charts visible on report open
         htmlReporter.config().setChartVisibilityOnOpen(true);
         htmlReporter.setAppendExisting(true);		
-        htmlReporter.config().setDocumentTitle("QA - Automation report");
-        htmlReporter.config().setReportName("ATG/Web Order Creation - Dev2");
+        htmlReporter.config().setDocumentTitle(DocumentTitle);
+        htmlReporter.config().setReportName(ReportName);
         return htmlReporter;
 	}
 	
