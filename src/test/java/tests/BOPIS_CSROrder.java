@@ -255,8 +255,8 @@ public void CSR_Order() throws Exception
 
 	}
 	
-	@AfterMethod
-	
+	@AfterMethod(alwaysRun=true)
+
 	public void Capture_Screenshot(ITestResult result) throws Exception 
 	{
 		 
@@ -281,7 +281,7 @@ public void CSR_Order() throws Exception
 		//test.addScreenCaptureFromPath("../Screenshots/"+result.getName()+".png");
 	}
 //	
-	@AfterClass
+	@AfterClass(alwaysRun=true)
 	public void teardown() throws Exception{
 		//func.Capture_Screenshot(result, ts);
 		extent.flush();

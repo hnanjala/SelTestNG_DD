@@ -220,7 +220,7 @@ public void CSR_Order() throws Exception
 				objExcel.updateExcel("C:\\Users\\hemar\\Jenkins_Workspace\\Project Workspace\\git\\SelTestNG_DD\\TestData","TestDataFile.xlsx","SFS_TestData", orderNum, i-1, 8);
 
 	}
-	@AfterMethod
+	@AfterMethod(alwaysRun=true)
 	public void Capture_Screenshot(ITestResult result) throws Exception 
 	{
 		 
@@ -245,7 +245,7 @@ public void CSR_Order() throws Exception
 		//test.addScreenCaptureFromPath("../Screenshots/"+result.getName()+".png");
 	}
 	
-	@AfterClass
+	@AfterClass(alwaysRun=true)
 	public void teardown(){
 		extent.flush();
 		driver.close();

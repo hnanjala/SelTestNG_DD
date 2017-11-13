@@ -239,7 +239,7 @@ public void CSR_Order() throws Exception
 
 	}
 	
-	@AfterMethod
+	@AfterMethod(alwaysRun=true)
 	public void Capture_Screenshot(ITestResult result) throws Exception 
 	{
 		 
@@ -265,7 +265,7 @@ public void CSR_Order() throws Exception
 	}
 	
 	
-	@AfterClass
+	@AfterClass(alwaysRun=true)
 	public void teardown(){
 		extent.flush();
 		driver.close();
