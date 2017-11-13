@@ -28,7 +28,7 @@ public class ExtentReportManager {
 		
 	    // make the charts visible on report open
         htmlReporter.config().setChartVisibilityOnOpen(true);
-        htmlReporter.setAppendExisting(false);	
+        htmlReporter.setAppendExisting(true);	
         htmlReporter.config().setDocumentTitle(DocumentTitle);
         htmlReporter.config().setReportName(ReportName);
         return htmlReporter;

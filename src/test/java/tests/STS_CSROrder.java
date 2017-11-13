@@ -213,9 +213,9 @@ public void CSR_Order() throws Exception
 				Thread.sleep(4000);
 				driver.findElement(objMap.getLocator("addGiftCardLabel")).click();
 				driver.findElement(objMap.getLocator("giftCardNum")).click();
-				driver.findElement(objMap.getLocator("giftCardNum")).sendKeys("6006496103999906781");
+				driver.findElement(objMap.getLocator("giftCardNum")).sendKeys(objMap.getValue("giftCardNumber"));
 				driver.findElement(objMap.getLocator("giftCardPin")).click();
-				driver.findElement(objMap.getLocator("giftCardPin")).sendKeys("2779");	
+				driver.findElement(objMap.getLocator("giftCardPin")).sendKeys(objMap.getValue("giftCardPin"));	
 				driver.findElement(objMap.getLocator("giftCardAdd")).click();
 				report.info("Payment has been added successfully");
 				Thread.sleep(3000);
@@ -267,6 +267,7 @@ public void CSR_Order() throws Exception
 	
 	@AfterClass
 	public void teardown(){
+		extent.flush();
 		driver.close();
 		driver.quit();
 	}
