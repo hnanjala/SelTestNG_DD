@@ -223,7 +223,7 @@ public void CSR_Order() throws Exception
 				Thread.sleep(3000);
 				driver.findElement(objMap.getLocator("placeOrder")).click();
 				Thread.sleep(7000);
-				func.TakeScreenShot(Thread.currentThread().getName()+"_Screenshot_"+func.getCurrentDateTime(), ts);
+				//func.TakeScreenShot(Thread.currentThread().getName()+"_Screenshot_"+func.getCurrentDateTime(), ts);
 				String orderNumRaw=driver.findElement(objMap.getLocator("orderConfirmationMessage")).getText();
 				String[] orderNumarr=orderNumRaw.split(Pattern.quote("("));
 				//System.out.println("Value:"+orderNumarr[1].substring(0, 8));
@@ -256,8 +256,9 @@ public void CSR_Order() throws Exception
 		}
 		else
 		{
-			report.fail("Test Failed - please refer log file & screnshot for the exact error details");
 			FileUtils.copyFile(source, new File("./test-output/Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_FAIL.png"));
+			report.fail("Test Failed - please refer log file & screnshot for the exact error details");
+			report.addScreenCaptureFromPath("./test-output/Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_FAIL.png");
 			//test.addScreenCaptureFromPath("../Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_FAIL.png");
 		}
 		System.out.println("Screenshot has been captured for the test"+result.getName());
