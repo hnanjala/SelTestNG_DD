@@ -36,6 +36,9 @@ import org.testng.ITestResult;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.markuputils.ExtentColor;
+import com.aventstack.extentreports.markuputils.Markup;
+import com.aventstack.extentreports.markuputils.MarkupHelper;
 
 import org.sikuli.script.Key;
 
@@ -313,6 +316,15 @@ String username = "EOM2015";
 		
 	}
 	
+	public Markup extentLabel(String text,ExtentColor color){
+		Markup m=MarkupHelper.createLabel(text, color);
+		return m;
+	}
+	
+	public Markup extentTable(String[][] data){
+		Markup m=MarkupHelper.createTable(data);
+		return m;
+	}
 }
 
 

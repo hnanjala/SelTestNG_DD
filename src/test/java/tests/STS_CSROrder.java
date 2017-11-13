@@ -26,6 +26,10 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.markuputils.ExtentColor;
+
 import org.apache.commons.io.FileUtils;
 
 //import java.awt.AWTException;
@@ -46,6 +50,8 @@ public class STS_CSROrder {
 	String[][] testData;
 	public int i,j,row,col;
 	public ITestResult result;
+	ExtentReports extent;
+	ExtentTest report;
 	
 	@BeforeClass
 	public void Setup() throws IOException{
@@ -63,10 +69,13 @@ public class STS_CSROrder {
 		wait=new WebDriverWait(driver,15);
 		ts=(TakesScreenshot)driver;
 		
+		extent=func.extentReportInvoke();
+		report=extent.createTest("Ship To Store - CSR order", "STS CSR Order");
+		
 	row=testData.length;
 	col=testData[0].length;
 	
-	System.out.println("Row Count: "+row+" ; Column Count: "+col);
+	//System.out.println("Row Count: "+row+" ; Column Count: "+col);
 	}
 	
 	
@@ -103,6 +112,10 @@ public void CSR_Order() throws Exception
 				Actions act=new Actions(driver);
 				act.moveToElement(driver.findElement(By.xpath("//div[contains(@id,'ds-itemtile-')]"))).build().perform();
 				//act.moveToElement(driver.findElement(By.xpath("//div[contains(@id,'ds-itemtile-')]//*[contains(@id,'triggerfield')] [contains(@placeholder,'item description')]"))).click().perform();
+				
+			    report.info("Able to login successfully");
+			    Thread.sleep(3000);
+				
 				
 				addLine:
 				for(i=1;i<row;i++)
@@ -144,10 +157,21 @@ public void CSR_Order() throws Exception
             driver.findElement(objMap.getLocator("goLocationSearch")).click();
             Thread.sleep(7000);
             
-            driver.findElement(By.xpath("//label[text()='"+testData[i][4]+"']/following::span[contains(@id,'olm-button')][text()='SHIP TO']")).click();
+            if (driver.findElement(By.xpath("//label[text()='"+testData[i][4]+"']/following::span[contains(@id,'olm-button')][text()='SHIP TO']")).isEnabled())
+            {
+                driver.findElement(By.xpath("//label[text()='"+testData[i][4]+"']/following::span[contains(@id,'olm-button')][text()='SHIP TO']")).click();
+            }
+            else
+            {
+            	System.out.println("Ship To button is disabled for the item: "+testData[i][1]);
+            	report.warning("Ship To option is unavailable for the item: "+testData[i][1]+"; Store#: "+testData[i][4]);
+            	continue addLine;
+            }
             Thread.sleep(3000);
+            driver.findElement(By.xpath("//label[text()='"+testData[i][4]+"']/following::span[contains(@id,'olm-button')][text()='SHIP TO']")).click();
          //   func.moveToElement(objMap.getLocator("addItemToCart"));
             driver.findElement(objMap.getLocator("addItemToCart")).click();
+            report.pass(func.extentLabel(testData[i][1]+" has been successfully added to the cart", ExtentColor.GREY));
             wait.until(ExpectedConditions.elementToBeClickable(objMap.getLocator("itemSearchByKeyword")));
 
 				if (!((i+1)==row))
@@ -155,6 +179,7 @@ public void CSR_Order() throws Exception
 				if (testData[i][0]==testData[i+1][0])
 				{
 					System.out.println("Adding remaining items to the cart");
+					report.info("Adding remaining items to the cart");
 					Thread.sleep(5000);
 					continue addLine;
 				}
@@ -168,7 +193,7 @@ public void CSR_Order() throws Exception
 				driver.findElement(objMap.getLocator("checkout")).click();
 				wait.until(ExpectedConditions.elementToBeClickable(objMap.getLocator("customerSearch_Registered")));
 				driver.findElement(objMap.getLocator("customerSearch_Registered")).click();
-				driver.findElement(objMap.getLocator("customerSearch_Registered")).sendKeys("u5926660026p");
+				driver.findElement(objMap.getLocator("customerSearch_Registered")).sendKeys(objMap.getValue("eomRegisteredCustomer"));
 				
 				driver.findElement(objMap.getLocator("customerSearch_Registered")).click();
 				Thread.sleep(3000);
@@ -192,6 +217,7 @@ public void CSR_Order() throws Exception
 				driver.findElement(objMap.getLocator("giftCardPin")).click();
 				driver.findElement(objMap.getLocator("giftCardPin")).sendKeys("2779");	
 				driver.findElement(objMap.getLocator("giftCardAdd")).click();
+				report.info("Payment has been added successfully");
 				Thread.sleep(3000);
 				driver.findElement(objMap.getLocator("proceedToSummary")).click();
 				Thread.sleep(3000);
@@ -207,6 +233,7 @@ public void CSR_Order() throws Exception
 				Thread.sleep(2000);
 				driver.findElement(objMap.getLocator("xClose")).click();
 				Thread.sleep(5000);
+				report.pass(func.extentLabel("Order#: "+orderNum, ExtentColor.GREEN));
 				//System.out.println("row: "+i);
 				objExcel.updateExcel("C:\\Users\\hemar\\Jenkins_Workspace\\Project Workspace\\git\\SelTestNG_DD\\TestData","TestDataFile.xlsx","STS_TestData", orderNum, i-1, 8);
 
@@ -229,6 +256,7 @@ public void CSR_Order() throws Exception
 		}
 		else
 		{
+			report.fail("Test Failed - please refer log file & screnshot for the exact error details");
 			FileUtils.copyFile(source, new File("./test-output/Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_FAIL.png"));
 			//test.addScreenCaptureFromPath("../Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_FAIL.png");
 		}

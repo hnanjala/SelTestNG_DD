@@ -28,6 +28,9 @@ import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.markuputils.ExtentColor;
+import com.aventstack.extentreports.markuputils.Markup;
+import com.aventstack.extentreports.markuputils.MarkupHelper;
 
 import org.apache.commons.io.FileUtils;
 
@@ -120,7 +123,7 @@ public void CSR_Order() throws Exception
 				act.moveToElement(driver.findElement(By.xpath("//div[contains(@id,'ds-itemtile-')]"))).build().perform();
 				//act.moveToElement(driver.findElement(By.xpath("//div[contains(@id,'ds-itemtile-')]//*[contains(@id,'triggerfield')] [contains(@placeholder,'item description')]"))).click().perform();
 				
-			    report.pass("Able to login successfully");
+			    report.info("Able to login successfully");
 			    Thread.sleep(3000);
 				
 				addLine:
@@ -167,12 +170,15 @@ public void CSR_Order() throws Exception
             }
             else
             {
-            	System.out.println("Pick UP button is disabled for the item: "+testData[i][4]);
+            	System.out.println("Pick UP button is disabled for the item: "+testData[i][1]);
+            	report.warning("Pick Up option is unavailable for the item: "+testData[i][1]+"; Store#: "+testData[i][4]);
             	continue addLine;
             }
             Thread.sleep(3000);
          //   func.moveToElement(objMap.getLocator("addItemToCart"));
             driver.findElement(objMap.getLocator("addItemToCart")).click();
+            //Clean the below code later - Mark Up
+            report.pass(func.extentLabel(testData[i][1]+" has been successfully added to the cart", ExtentColor.GREY));
             Thread.sleep(3000);
             wait.until(ExpectedConditions.elementToBeClickable(objMap.getLocator("itemSearchByKeyword")));
 
@@ -181,6 +187,7 @@ public void CSR_Order() throws Exception
 				if (testData[i][0]==testData[i+1][0])
 				{
 					System.out.println("Adding remaining items to the cart");
+					report.info("Adding remaining items to the cart");
 					Thread.sleep(5000);
 					continue addLine;
 				}
@@ -194,15 +201,14 @@ public void CSR_Order() throws Exception
 				driver.findElement(objMap.getLocator("checkout")).click();
 				wait.until(ExpectedConditions.elementToBeClickable(objMap.getLocator("customerSearch_Registered")));
 				driver.findElement(objMap.getLocator("customerSearch_Registered")).click();
-				driver.findElement(objMap.getLocator("customerSearch_Registered")).sendKeys("u5926660026p");
+				driver.findElement(objMap.getLocator("customerSearch_Registered")).sendKeys(objMap.getValue("eomRegisteredCustomer"));
 				driver.findElement(objMap.getLocator("customerSearch_Registered")).click();
 				Thread.sleep(3000);
 				driver.findElement(By.xpath("//label[text()='IDENTIFY REGISTERED CUSTOMER']//following::input[contains(@id,'olm-customersearchcombo')][@placeholder='name, email, phone']/following::div[1]")).click();
 				Actions builder=new Actions(driver);
 				Action seriesofActions=builder.sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).build();
 				seriesofActions.perform();
-				
-//				Robot robot=new Robot();
+				//				Robot robot=new Robot();
 //				robot.delay(2000);
 //				robot.keyPress(KeyEvent.VK_ENTER);
 //				robot.keyRelease(KeyEvent.VK_ENTER);
@@ -214,6 +220,7 @@ public void CSR_Order() throws Exception
 			    //func.clickUsingSikuli("C:\\Users\\hemar\\Jenkins_Workspace\\Project Workspace\\git\\SelTestNG_DD\\TestData\\Images_Sikuli\\RegisteredCustomer_u5926660026p.PNG");
 				Thread.sleep(5000);
 				driver.findElement(objMap.getLocator("doneSelectCustomer_Registered")).click();
+				report.info("Customer ID: "+objMap.getValue("eomRegisteredCustomer")+" has been selected");		
 				Thread.sleep(5000);
 				driver.findElement(objMap.getLocator("proceedToPayment")).click();
 				Thread.sleep(4000);
@@ -223,12 +230,13 @@ public void CSR_Order() throws Exception
 				driver.findElement(objMap.getLocator("giftCardPin")).click();
 				driver.findElement(objMap.getLocator("giftCardPin")).sendKeys("4293");	
 				driver.findElement(objMap.getLocator("giftCardAdd")).click();
+				report.info("Payment has been added successfully");
 				Thread.sleep(3000);
 				driver.findElement(objMap.getLocator("proceedToSummary")).click();
 				Thread.sleep(3000);
 				driver.findElement(objMap.getLocator("placeOrder")).click();
 				Thread.sleep(7000);
-				func.TakeScreenShot(Thread.currentThread().getName()+"_Screenshot_"+func.getCurrentDateTime(), ts);
+				func.TakeScreenShot(this.getClass().getSimpleName()+"_Screenshot_"+func.getCurrentDateTime(), ts);
 				String orderNumRaw=driver.findElement(objMap.getLocator("orderConfirmationMessage")).getText();
 				String[] orderNumarr=orderNumRaw.split(Pattern.quote("("));
 				//System.out.println("Value:"+orderNumarr[1].substring(0, 8));
@@ -238,12 +246,17 @@ public void CSR_Order() throws Exception
 				Thread.sleep(2000);
 				driver.findElement(objMap.getLocator("xClose")).click();
 				Thread.sleep(5000);
+				report.pass(func.extentLabel("Order#: "+orderNum, ExtentColor.GREEN));
+				//String data[2][2];
+				//data[0][0]="Serial#";data[0][1]="Order#";data[1][0]="1";data[1][1]=orderNum;
+				//report.pass(func.extentTable(data));
 				//System.out.println("row: "+i);
 				objExcel.updateExcel("C:\\Users\\hemar\\Jenkins_Workspace\\Project Workspace\\git\\SelTestNG_DD\\TestData","TestDataFile.xlsx","BOPIS_TestData", orderNum, i-1, 8);
 
 	}
 	
 	@AfterMethod
+	
 	public void Capture_Screenshot(ITestResult result) throws Exception 
 	{
 		 
@@ -260,13 +273,14 @@ public void CSR_Order() throws Exception
 		}
 		else
 		{
+			report.fail("Test Failed - please refer log file & screnshot for the exact error details");
 			FileUtils.copyFile(source, new File("./test-output/Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_FAIL.png"));
 			//test.addScreenCaptureFromPath("../Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_FAIL.png");
 		}
 		System.out.println("Screenshot has been captured for the test"+result.getName());
 		//test.addScreenCaptureFromPath("../Screenshots/"+result.getName()+".png");
 	}
-	
+//	
 	@AfterClass
 	public void teardown() throws Exception{
 		//func.Capture_Screenshot(result, ts);
