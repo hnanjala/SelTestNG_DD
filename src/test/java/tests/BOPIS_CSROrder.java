@@ -60,10 +60,10 @@ public class BOPIS_CSROrder {
 	
 	@BeforeClass
 	public void Setup() throws IOException{
-		objMap=new ObjectMap("C:\\Users\\hemar\\Jenkins_Workspace\\Project Workspace\\git\\SelTestNG_DD\\UI Map\\EOM.properties");
+		objMap=new ObjectMap(".\\UI Map\\EOM.properties");
 		objExcel=new ExcelUtilities();
 		func=new GenericFunctions();
-		testData=objExcel.readExcel("C:\\Users\\hemar\\Jenkins_Workspace\\Project Workspace\\git\\SelTestNG_DD\\TestData","TestDataFile.xlsx","BOPIS_TestData");
+		testData=objExcel.readExcel(".\\TestData","TestDataFile.xlsx","BOPIS_TestData");
 		System.setProperty("webdriver.chrome.driver",objMap.getValue("chromeDriverPath"));
 		ChromeOptions options=new ChromeOptions();
 		options.addArguments("--incognito");
@@ -256,7 +256,7 @@ public void CSR_Order() throws Exception
 				//data[0][0]="Serial#";data[0][1]="Order#";data[1][0]="1";data[1][1]=orderNum;
 				//report.pass(func.extentTable(data));
 				//System.out.println("row: "+i);
-				objExcel.updateExcel("C:\\Users\\hemar\\Jenkins_Workspace\\Project Workspace\\git\\SelTestNG_DD\\TestData","TestDataFile.xlsx","BOPIS_TestData", orderNum, i-1, 8);
+				objExcel.updateExcel(".\\TestData","TestDataFile.xlsx","BOPIS_TestData", orderNum, i-1, 8);
 
 	}
 	

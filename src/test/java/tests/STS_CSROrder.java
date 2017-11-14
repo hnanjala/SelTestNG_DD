@@ -55,10 +55,10 @@ public class STS_CSROrder {
 	
 	@BeforeClass
 	public void Setup() throws IOException{
-		objMap=new ObjectMap("C:\\Users\\hemar\\Jenkins_Workspace\\Project Workspace\\git\\SelTestNG_DD\\UI Map\\EOM.properties");
+		objMap=new ObjectMap(".\\UI Map\\EOM.properties");
 		objExcel=new ExcelUtilities();
 		func=new GenericFunctions();
-		testData=objExcel.readExcel("C:\\Users\\hemar\\Jenkins_Workspace\\Project Workspace\\git\\SelTestNG_DD\\TestData","TestDataFile.xlsx","STS_TestData");
+		testData=objExcel.readExcel(".\\TestData","TestDataFile.xlsx","STS_TestData");
 		System.setProperty("webdriver.chrome.driver",objMap.getValue("chromeDriverPath"));
 		ChromeOptions options=new ChromeOptions();
 		options.addArguments("--incognito");
@@ -208,6 +208,7 @@ public void CSR_Order() throws Exception
 //				robot.keyRelease(KeyEvent.VK_ENTER);
 				Thread.sleep(5000);
 				driver.findElement(objMap.getLocator("doneSelectCustomer_Registered")).click();
+				report.info("Customer ID: "+objMap.getValue("eomRegisteredCustomer")+" has been selected");	
 				Thread.sleep(5000);
 				driver.findElement(objMap.getLocator("proceedToPayment")).click();
 				Thread.sleep(4000);
@@ -239,7 +240,7 @@ public void CSR_Order() throws Exception
 				}
 				report.pass(func.extentLabel("Order#: "+orderNum, ExtentColor.GREEN));
 				//System.out.println("row: "+i);
-				objExcel.updateExcel("C:\\Users\\hemar\\Jenkins_Workspace\\Project Workspace\\git\\SelTestNG_DD\\TestData","TestDataFile.xlsx","STS_TestData", orderNum, i-1, 8);
+				objExcel.updateExcel(".\\TestData","TestDataFile.xlsx","STS_TestData", orderNum, i-1, 8);
 
 	}
 	
