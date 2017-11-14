@@ -168,7 +168,7 @@ public void CSR_Order() throws Exception
             	continue addLine;
             }
             Thread.sleep(3000);
-            driver.findElement(By.xpath("//label[text()='"+testData[i][4]+"']/following::span[contains(@id,'olm-button')][text()='SHIP TO']")).click();
+           // driver.findElement(By.xpath("//label[text()='"+testData[i][4]+"']/following::span[contains(@id,'olm-button')][text()='SHIP TO']")).click();
          //   func.moveToElement(objMap.getLocator("addItemToCart"));
             driver.findElement(objMap.getLocator("addItemToCart")).click();
             report.pass(func.extentLabel(testData[i][1]+" has been successfully added to the cart", ExtentColor.GREY));
@@ -231,8 +231,12 @@ public void CSR_Order() throws Exception
 				System.out.println("STS Order#: "+orderNum+" has been created");
 				driver.findElement(objMap.getLocator("orderConfirmSaveButton")).click();
 				Thread.sleep(2000);
-				driver.findElement(objMap.getLocator("xClose")).click();
+				driver.findElement(objMap.getLocator("xCloseCustInfoSAVE")).click();
 				Thread.sleep(5000);
+				if(func.isElementPresent(objMap.getLocator("xCloseConcurrencyException")))
+				{
+					driver.findElement(objMap.getLocator("xCloseConcurrencyException")).click();
+				}
 				report.pass(func.extentLabel("Order#: "+orderNum, ExtentColor.GREEN));
 				//System.out.println("row: "+i);
 				objExcel.updateExcel("C:\\Users\\hemar\\Jenkins_Workspace\\Project Workspace\\git\\SelTestNG_DD\\TestData","TestDataFile.xlsx","STS_TestData", orderNum, i-1, 8);

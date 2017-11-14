@@ -2,38 +2,42 @@
 <testng-results skipped="0" failed="1" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="85255" started-at="2017-11-13T21:58:45Z" finished-at="2017-11-13T22:00:10Z">
+  <suite name="Default suite" duration-ms="83202" started-at="2017-11-14T15:54:38Z" finished-at="2017-11-14T15:56:01Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="85255" started-at="2017-11-13T21:58:45Z" finished-at="2017-11-13T22:00:10Z">
-      <class name="tests.BOPIS_CSROrder">
-        <test-method status="PASS" signature="Setup()[pri:0, instance:tests.BOPIS_CSROrder@5700d6b1]" name="Setup" is-config="true" duration-ms="2600" started-at="2017-11-13T16:58:45Z" finished-at="2017-11-13T16:58:47Z">
+    <test name="Default test" duration-ms="83202" started-at="2017-11-14T15:54:38Z" finished-at="2017-11-14T15:56:01Z">
+      <class name="tests.STS_CSROrder">
+        <test-method status="PASS" signature="Setup()[pri:0, instance:tests.STS_CSROrder@7085bdee]" name="Setup" is-config="true" duration-ms="2640" started-at="2017-11-14T10:54:38Z" finished-at="2017-11-14T10:54:40Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Setup -->
-        <test-method status="FAIL" signature="CSR_Order()[pri:0, instance:tests.BOPIS_CSROrder@5700d6b1]" name="CSR_Order" duration-ms="78837" started-at="2017-11-13T16:58:47Z" finished-at="2017-11-13T17:00:06Z">
-          <exception class="org.openqa.selenium.WebDriverException">
+        <test-method status="FAIL" signature="CSR_Order()[pri:0, instance:tests.STS_CSROrder@7085bdee]" name="CSR_Order" duration-ms="76942" started-at="2017-11-14T10:54:40Z" finished-at="2017-11-14T10:55:57Z">
+          <exception class="org.openqa.selenium.NoSuchElementException">
             <message>
-              <![CDATA[unknown error: Element <span id="olm-button-2372-btnInnerEl" data-ref="btnInnerEl" unselectable="on" class="x-btn-inner x-btn-inner-olm-modern-small">...</span> is not clickable at point (1091, 610). Other element would receive the click: <div data-sticky="true" role="presentation" class="x-mask" style="height: 623px; width: 1366px; z-index: 28996; right: auto; left: 0px; top: 0px;" id="ext-element-31"></div>
+              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//label[text()='558']/following::span[contains(@id,'olm-button')][text()='SHIP TO']"}
   (Session info: chrome=61.0.3163.100)
   (Driver info: chromedriver=2.30.477700 (0057494ad8732195794a7b32078424f92a5fce41),platform=Windows NT 6.1.7601 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 83 milliseconds
+Command duration or timeout: 30.04 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
 System info: host: 'EXPLTDC1PBT8H4W', ip: '172.26.218.215', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_101'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.30.477700 (0057494ad8732195794a7b32078424f92a5fce41), userDataDir=C:\Users\hnanjala\AppData\Local\Temp\scoped_dir10016_5761}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=61.0.3163.100, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
-Session ID: 290b24d922861b70c8a8e63ceb71dba9]]>
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.30.477700 (0057494ad8732195794a7b32078424f92a5fce41), userDataDir=C:\Users\hnanjala\AppData\Local\Temp\scoped_dir9068_12548}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=61.0.3163.100, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: d43b5da71c22e63da9c9287714645ed7
+*** Element info: {Using=xpath, value=//label[text()='558']/following::span[contains(@id,'olm-button')][text()='SHIP TO']}]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.WebDriverException: unknown error: Element <span id="olm-button-2372-btnInnerEl" data-ref="btnInnerEl" unselectable="on" class="x-btn-inner x-btn-inner-olm-modern-small">...</span> is not clickable at point (1091, 610). Other element would receive the click: <div data-sticky="true" role="presentation" class="x-mask" style="height: 623px; width: 1366px; z-index: 28996; right: auto; left: 0px; top: 0px;" id="ext-element-31"></div>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//label[text()='558']/following::span[contains(@id,'olm-button')][text()='SHIP TO']"}
   (Session info: chrome=61.0.3163.100)
   (Driver info: chromedriver=2.30.477700 (0057494ad8732195794a7b32078424f92a5fce41),platform=Windows NT 6.1.7601 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 83 milliseconds
+Command duration or timeout: 30.04 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
 System info: host: 'EXPLTDC1PBT8H4W', ip: '172.26.218.215', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_101'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.30.477700 (0057494ad8732195794a7b32078424f92a5fce41), userDataDir=C:\Users\hnanjala\AppData\Local\Temp\scoped_dir10016_5761}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=61.0.3163.100, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
-Session ID: 290b24d922861b70c8a8e63ceb71dba9
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.30.477700 (0057494ad8732195794a7b32078424f92a5fce41), userDataDir=C:\Users\hnanjala\AppData\Local\Temp\scoped_dir9068_12548}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=61.0.3163.100, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: d43b5da71c22e63da9c9287714645ed7
+*** Element info: {Using=xpath, value=//label[text()='558']/following::span[contains(@id,'olm-button')][text()='SHIP TO']}
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -41,9 +45,11 @@ Session ID: 290b24d922861b70c8a8e63ceb71dba9
 	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
 	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:327)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:85)
-	at tests.BOPIS_CSROrder.CSR_Order(BOPIS_CSROrder.java:236)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:500)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at tests.STS_CSROrder.CSR_Order(STS_CSROrder.java:171)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -70,26 +76,26 @@ Session ID: 290b24d922861b70c8a8e63ceb71dba9
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.WebDriverException -->
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CSR_Order -->
-        <test-method status="PASS" signature="Capture_Screenshot(org.testng.ITestResult)[pri:0, instance:tests.BOPIS_CSROrder@5700d6b1]" name="Capture_Screenshot" is-config="true" duration-ms="415" started-at="2017-11-13T17:00:06Z" finished-at="2017-11-13T17:00:07Z">
+        <test-method status="PASS" signature="Capture_Screenshot(org.testng.ITestResult)[pri:0, instance:tests.STS_CSROrder@7085bdee]" name="Capture_Screenshot" is-config="true" duration-ms="365" started-at="2017-11-14T10:55:57Z" finished-at="2017-11-14T10:55:58Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=CSR_Order status=FAILURE method=BOPIS_CSROrder.CSR_Order()[pri:0, instance:tests.BOPIS_CSROrder@5700d6b1] output={null}]]]>
+                <![CDATA[[TestResult name=CSR_Order status=FAILURE method=STS_CSROrder.CSR_Order()[pri:0, instance:tests.STS_CSROrder@7085bdee] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Capture_Screenshot -->
-        <test-method status="PASS" signature="teardown()[pri:0, instance:tests.BOPIS_CSROrder@5700d6b1]" name="teardown" is-config="true" duration-ms="3379" started-at="2017-11-13T17:00:07Z" finished-at="2017-11-13T17:00:10Z">
+        <test-method status="PASS" signature="teardown()[pri:0, instance:tests.STS_CSROrder@7085bdee]" name="teardown" is-config="true" duration-ms="3228" started-at="2017-11-14T10:55:58Z" finished-at="2017-11-14T10:56:01Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
-      </class> <!-- tests.BOPIS_CSROrder -->
+      </class> <!-- tests.STS_CSROrder -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

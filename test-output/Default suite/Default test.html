@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Mon Nov 13 16:58:45 EST 2017</td>
+<td>Started on:</td><td>Tue Nov 14 10:54:38 EST 2017</td>
 </tr>
-<tr><td>Total time:</td><td>85 seconds (85255 ms)</td>
+<tr><td>Total time:</td><td>83 seconds (83202 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,16 +75,18 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='tests.BOPIS_CSROrder.CSR_Order()'><b>CSR_Order</b><br>Test class: tests.BOPIS_CSROrder</td>
-<td><div><pre>org.openqa.selenium.WebDriverException: unknown error: Element &lt;span id=&quot;olm-button-2372-btnInnerEl&quot; data-ref=&quot;btnInnerEl&quot; unselectable=&quot;on&quot; class=&quot;x-btn-inner x-btn-inner-olm-modern-small&quot;&gt;...&lt;/span&gt; is not clickable at point (1091, 610). Other element would receive the click: &lt;div data-sticky=&quot;true&quot; role=&quot;presentation&quot; class=&quot;x-mask&quot; style=&quot;height: 623px; width: 1366px; z-index: 28996; right: auto; left: 0px; top: 0px;&quot; id=&quot;ext-element-31&quot;&gt;&lt;/div&gt;
+<td title='tests.STS_CSROrder.CSR_Order()'><b>CSR_Order</b><br>Test class: tests.STS_CSROrder</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//label[text()=&apos;558&apos;]/following::span[contains(@id,&apos;olm-button&apos;)][text()=&apos;SHIP TO&apos;]&quot;}
   (Session info: chrome=61.0.3163.100)
   (Driver info: chromedriver=2.30.477700 (0057494ad8732195794a7b32078424f92a5fce41),platform=Windows NT 6.1.7601 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 83 milliseconds
+Command duration or timeout: 30.04 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
 System info: host: &apos;EXPLTDC1PBT8H4W&apos;, ip: &apos;172.26.218.215&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_101&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.30.477700 (0057494ad8732195794a7b32078424f92a5fce41), userDataDir=C:\Users\hnanjala\AppData\Local\Temp\scoped_dir10016_5761}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=61.0.3163.100, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
-Session ID: 290b24d922861b70c8a8e63ceb71dba9
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.30.477700 (0057494ad8732195794a7b32078424f92a5fce41), userDataDir=C:\Users\hnanjala\AppData\Local\Temp\scoped_dir9068_12548}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=61.0.3163.100, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: d43b5da71c22e63da9c9287714645ed7
+*** Element info: {Using=xpath, value=//label[text()=&apos;558&apos;]/following::span[contains(@id,&apos;olm-button&apos;)][text()=&apos;SHIP TO&apos;]}
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -92,9 +94,11 @@ Session ID: 290b24d922861b70c8a8e63ceb71dba9
 	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
 	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:327)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:85)
-	at tests.BOPIS_CSROrder.CSR_Order(BOPIS_CSROrder.java:236)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:500)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at tests.STS_CSROrder.CSR_Order(STS_CSROrder.java:171)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -119,16 +123,18 @@ Session ID: 290b24d922861b70c8a8e63ceb71dba9
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
-</pre></div><a href='#' onClick='toggleBox("stack-trace2143571436", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace2143571436'><pre>org.openqa.selenium.WebDriverException: unknown error: Element &lt;span id=&quot;olm-button-2372-btnInnerEl&quot; data-ref=&quot;btnInnerEl&quot; unselectable=&quot;on&quot; class=&quot;x-btn-inner x-btn-inner-olm-modern-small&quot;&gt;...&lt;/span&gt; is not clickable at point (1091, 610). Other element would receive the click: &lt;div data-sticky=&quot;true&quot; role=&quot;presentation&quot; class=&quot;x-mask&quot; style=&quot;height: 623px; width: 1366px; z-index: 28996; right: auto; left: 0px; top: 0px;&quot; id=&quot;ext-element-31&quot;&gt;&lt;/div&gt;
+</pre></div><a href='#' onClick='toggleBox("stack-trace1149407083", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1149407083'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//label[text()=&apos;558&apos;]/following::span[contains(@id,&apos;olm-button&apos;)][text()=&apos;SHIP TO&apos;]&quot;}
   (Session info: chrome=61.0.3163.100)
   (Driver info: chromedriver=2.30.477700 (0057494ad8732195794a7b32078424f92a5fce41),platform=Windows NT 6.1.7601 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 83 milliseconds
+Command duration or timeout: 30.04 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
 System info: host: &apos;EXPLTDC1PBT8H4W&apos;, ip: &apos;172.26.218.215&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_101&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.30.477700 (0057494ad8732195794a7b32078424f92a5fce41), userDataDir=C:\Users\hnanjala\AppData\Local\Temp\scoped_dir10016_5761}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=61.0.3163.100, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
-Session ID: 290b24d922861b70c8a8e63ceb71dba9
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.30.477700 (0057494ad8732195794a7b32078424f92a5fce41), userDataDir=C:\Users\hnanjala\AppData\Local\Temp\scoped_dir9068_12548}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=61.0.3163.100, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: d43b5da71c22e63da9c9287714645ed7
+*** Element info: {Using=xpath, value=//label[text()=&apos;558&apos;]/following::span[contains(@id,&apos;olm-button&apos;)][text()=&apos;SHIP TO&apos;]}
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -136,9 +142,11 @@ Session ID: 290b24d922861b70c8a8e63ceb71dba9
 	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
 	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:327)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:85)
-	at tests.BOPIS_CSROrder.CSR_Order(BOPIS_CSROrder.java:236)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:500)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at tests.STS_CSROrder.CSR_Order(STS_CSROrder.java:171)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -164,8 +172,8 @@ Session ID: 290b24d922861b70c8a8e63ceb71dba9
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
 </pre></div></td>
-<td>78</td>
-<td>tests.BOPIS_CSROrder@5700d6b1</td></tr>
+<td>76</td>
+<td>tests.STS_CSROrder@7085bdee</td></tr>
 </table><p>
 </body>
 </html>

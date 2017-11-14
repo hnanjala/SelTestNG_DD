@@ -245,8 +245,12 @@ public void CSR_Order() throws Exception
 				System.out.println("BOPIS Order#: "+orderNum+" has been created");
 				driver.findElement(objMap.getLocator("orderConfirmSaveButton")).click();
 				Thread.sleep(2000);
-				driver.findElement(objMap.getLocator("xClose")).click();
+				driver.findElement(objMap.getLocator("xCloseCustInfoSAVE")).click();
 				Thread.sleep(5000);
+				if(func.isElementPresent(objMap.getLocator("xCloseConcurrencyException")))
+				{
+					driver.findElement(objMap.getLocator("xCloseConcurrencyException")).click();
+				}
 				report.pass(func.extentLabel("Order#: "+orderNum, ExtentColor.GREEN));
 				//String data[2][2];
 				//data[0][0]="Serial#";data[0][1]="Order#";data[1][0]="1";data[1][1]=orderNum;
