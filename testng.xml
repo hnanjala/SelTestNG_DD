@@ -8,8 +8,8 @@
 	<test name="Test" parallel="false" thread-count="5">
 		<classes>
 			<class name="tests.BOPIS_CSROrder" />
-    <!--        <class name="tests.SFS_CSROrder" />
-		    <class name="tests.STS_CSROrder" />   -->
+         <class name="tests.SFS_CSROrder" />
+		    <class name="tests.STS_CSROrder" /> 
 		</classes>
 	</test> <!-- Test -->
 
