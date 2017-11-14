@@ -42,6 +42,15 @@
 									<exclude></exclude>
 								</excludes>
 						</fileset>
+						<fileset>
+								<directory>${basedir}/test-output/Screenshots</directory>
+								<includes>
+									<include>**/*</include>
+								</includes>
+								<excludes>
+									<exclude></exclude>
+								</excludes>
+						</fileset>
 					</filesets>
 					<followSymLins>false</followSymLins>
 				</configuration>
