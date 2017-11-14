@@ -197,7 +197,7 @@ public void CSR_Order() throws Exception
 				driver.findElement(objMap.getLocator("giftCardNum")).click();
 				driver.findElement(objMap.getLocator("giftCardNum")).sendKeys(objMap.getValue("giftCardNumber"));
 				driver.findElement(objMap.getLocator("giftCardPin")).click();
-				driver.findElement(objMap.getLocator("giftCardPin")).sendKeys(objMap.getValue("giftCardPin"));	
+				driver.findElement(objMap.getLocator("giftCardPin")).sendKeys(objMap.getValue("gcPin"));	
 				driver.findElement(objMap.getLocator("giftCardAdd")).click();
 				report.info("Payment has been added successfully");
 				Thread.sleep(3000);
@@ -234,6 +234,7 @@ public void CSR_Order() throws Exception
 		{
 			FileUtils.copyFile(source, new File("./test-output/Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_PASS.png"));
 			//test.addScreenCaptureFromPath("../Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_PASS.png");
+			report.addScreenCaptureFromPath("./test-output/Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_PASS.png");
 		}
 		else
 		{
