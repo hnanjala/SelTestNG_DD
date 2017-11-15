@@ -212,8 +212,17 @@ public void CSR_Order() throws Exception
 				//System.out.println("Value:"+orderNumarr[1].substring(0, 8));
 				String orderNum=orderNumarr[1].substring(0, 8);
 				System.out.println("BOPIS Order#: "+orderNum+" has been created");
+				if(func.isElementPresent(objMap.getLocator("xCloseConcurrencyException")))
+				{
+					driver.findElement(objMap.getLocator("xCloseConcurrencyException")).click();
+				}
+				
 				driver.findElement(objMap.getLocator("orderConfirmSaveButton")).click();
 				Thread.sleep(2000);
+				if(func.isElementPresent(objMap.getLocator("xCloseConcurrencyException")))
+				{
+					driver.findElement(objMap.getLocator("xCloseConcurrencyException")).click();
+				}
 				driver.findElement(objMap.getLocator("xCloseCustInfoSAVE")).click();
 				Thread.sleep(5000);
 				if(func.isElementPresent(objMap.getLocator("xCloseConcurrencyException")))
@@ -248,7 +257,7 @@ public void CSR_Order() throws Exception
 			report.addScreenCaptureFromPath("./test-output/Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_FAIL.png");
 			//test.addScreenCaptureFromPath("../Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_FAIL.png");
 		}
-		System.out.println("Screenshot has been captured for the test"+result.getName());
+		//System.out.println("Screenshot has been captured for the test"+result.getName());
 		//test.addScreenCaptureFromPath("../Screenshots/"+result.getName()+".png");
 	}
 	
