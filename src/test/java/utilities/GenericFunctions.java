@@ -52,7 +52,7 @@ import  java.sql.SQLException;
 public class GenericFunctions {
 	WebDriver driver;
 	TakesScreenshot ts;
-	public ObjectMap objMap=new ObjectMap("C:\\Users\\hemar\\Jenkins_Workspace\\Project Workspace\\git\\SelTestNG_DD\\UI Map\\EOM.properties");
+	public ObjectMap objMap=new ObjectMap(".\\UI Map\\EOM.properties");
 	ExtentReports extentrep;
 	ExtentTest Test;
 	//TakeScreenshot --> DONE
