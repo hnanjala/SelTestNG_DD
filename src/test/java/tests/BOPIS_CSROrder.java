@@ -284,7 +284,8 @@ public void CSR_Order() throws Exception
 		{
 			FileUtils.copyFile(source, new File("./test-output/Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_PASS.png"));
 			//test.addScreenCaptureFromPath("../Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_PASS.png");
-			report.addScreenCaptureFromPath("./test-output/Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_PASS.png");
+			//MediaEntityModelProvider mediaModel=MediaEntityBuilder.createScreenCaptureFromPath(result.getInstanceName()+"_"+result.getName()+"_PASS.png").build();
+			//report.info("Details", mediaModel);
 			
 		}
 		else
@@ -292,8 +293,8 @@ public void CSR_Order() throws Exception
 
 			FileUtils.copyFile(source, new File("./test-output/Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_FAIL.png"));
 			report.fail("Test Failed - please refer log file & screnshot for the exact error details");
-			report.addScreenCaptureFromPath("./test-output/Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_FAIL.png");
-			//test.addScreenCaptureFromPath("../Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_FAIL.png");
+			//MediaEntityModelProvider mediaModel=MediaEntityBuilder.createScreenCaptureFromPath(result.getInstanceName()+"_"+result.getName()+"FAIL.png").build();
+			//report.info("Details", mediaModel);
 		}
 		//System.out.println("Screenshot has been captured for the test"+result.getName());
 		//test.addScreenCaptureFromPath("../Screenshots/"+result.getName()+".png");

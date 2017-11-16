@@ -27,11 +27,12 @@ public class ExtentReportManager {
         htmlReporter = new ExtentHtmlReporter(FilePath);
 		
 	    // make the charts visible on report open
-        htmlReporter.config().setChartVisibilityOnOpen(true);
-        htmlReporter.setAppendExisting(true);	
-        htmlReporter.config().setDocumentTitle(DocumentTitle);
-        htmlReporter.config().setReportName(ReportName);
-        return htmlReporter;
+       // htmlReporter.config().setChartVisibilityOnOpen(true);
+       //  htmlReporter.setAppendExisting(true);	
+       // htmlReporter.config().setDocumentTitle(DocumentTitle);
+       htmlReporter.config().setReportName(ReportName);
+        //htmlReporter.loadXMLConfig("C:\\Users\\hemar\\Jenkins_Workspace\\Project Workspace\\git\\SelTestNG_DD\\Config Files\\Extent-Config.xml");
+       return htmlReporter;
 	}
 	
 	public static ExtentTest createTest(String name, String description){
