@@ -266,7 +266,7 @@ public void CSR_Order() throws Exception
 				//report.pass(func.extentTable(data));
 				//System.out.println("row: "+i);
 				objExcel.updateExcel(".\\TestData","TestDataFile.xlsx","BOPIS_TestData", orderNum, i-1, 8);
-
+								
 	}
 	
 	@AfterMethod(alwaysRun=true)
@@ -305,6 +305,7 @@ public void CSR_Order() throws Exception
 		extent.flush();
 		driver.close();
 		driver.quit();
+		System.out.println("********************END of 'Buy Online Pickup In Store_CSR Test'*************************");
 	}
 
 

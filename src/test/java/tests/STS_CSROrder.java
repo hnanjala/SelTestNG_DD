@@ -285,6 +285,7 @@ public void CSR_Order() throws Exception
 		extent.flush();
 		driver.close();
 		driver.quit();
+		System.out.println("********************END of 'Ship To Store_CSR Test'*************************");
 	}
 
 	
