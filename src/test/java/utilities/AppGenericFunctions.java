@@ -79,6 +79,20 @@ public class AppGenericFunctions {
 	
 	//*********************************************************************************************************************************//
 	
+	public void ProceedToPaymentAndPayWithAmex(WebDriver driver) throws Exception
+	{
+		driver.findElement(objMap.getLocator("proceedToPayment")).click();
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//label[contains(text(),'Amex ending with 1004')]")).click();
+		driver.findElement(By.xpath("//label[contains(text(),'Amex ending with 1004')]/following::input[@name='securityCode'][1]")).sendKeys("1224");
+		driver.findElement(By.xpath("//label[contains(text(),'Amex ending with 1004')]/following::input[@name='securityCode'][1]/following::span[text()='ADD'][1]")).click();
+		
+		//report.info("Payment has been added successfully");
+		Thread.sleep(5000);
+	}
+	
+	//*********************************************************************************************************************************//
+	
 	public String ProceedToSummaryAndPlaceOrder(WebDriver driver) throws Exception
 	{
 		driver.findElement(objMap.getLocator("proceedToSummary")).click();
