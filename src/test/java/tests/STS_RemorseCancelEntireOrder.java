@@ -1,9 +1,9 @@
 package tests;
 
-import utilities.AppGenericFunctions;
 import utilities.ExcelUtilities;
 import utilities.GenericFunctions;
 import utilities.ObjectMap;
+import utilities.AppGenericFunctions;
 
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
@@ -29,11 +29,7 @@ import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.MediaEntityBuilder;
-import com.aventstack.extentreports.MediaEntityModelProvider;
 import com.aventstack.extentreports.markuputils.ExtentColor;
-import com.aventstack.extentreports.markuputils.Markup;
-import com.aventstack.extentreports.markuputils.MarkupHelper;
 
 import org.apache.commons.io.FileUtils;
 
@@ -44,14 +40,13 @@ import java.io.File;
 import java.io.IOException;
 
 
-public class BOPIS_CSROrder {
+public class STS_RemorseCancelEntireOrder {
 	
 	public ObjectMap objMap;
 	public GenericFunctions func;
 	public AppGenericFunctions appFunc;
 	ExcelUtilities objExcel;
-	public 
-	WebDriver driver;
+	public WebDriver driver;
 	WebDriverWait wait;
 	public TakesScreenshot ts;
 	String[][] testData;
@@ -60,14 +55,13 @@ public class BOPIS_CSROrder {
 	ExtentReports extent;
 	ExtentTest report;
 	
-	
 	@BeforeClass
 	public void Setup() throws IOException{
 		objMap=new ObjectMap(".\\UI Map\\EOM.properties");
 		objExcel=new ExcelUtilities();
 		func=new GenericFunctions();
 		appFunc=new AppGenericFunctions();
-		testData=objExcel.readExcel(".\\TestData","TestDataFile.xlsx","BOPIS_TestData");
+		testData=objExcel.readExcel(".\\TestData","TestDataFile.xlsx","STS_TestData");
 		System.setProperty("webdriver.chrome.driver",objMap.getValue("chromeDriverPath"));
 		ChromeOptions options=new ChromeOptions();
 		options.addArguments("--incognito");
@@ -79,13 +73,9 @@ public class BOPIS_CSROrder {
 		ts=(TakesScreenshot)driver;
 		
 		extent=func.extentReportInvoke();
-		report=extent.createTest("Buy Online Pick Up in Store - CSR order", "BOPIS CSR Order");
-
-		//System.out.println("Thread Name: "+Thread.currentThread().getName()+"Class Name: "+driver.getClass().getName());
+		report=extent.createTest("Ship To Store - CSR order", "STS CSR Order");
 		
-		
-		
-	rowCount=testData.length;
+		rowCount=testData.length;
 	colCount=testData[0].length;
 	
 	//System.out.println("Row Count: "+row+" ; Column Count: "+col);
@@ -93,28 +83,23 @@ public class BOPIS_CSROrder {
 	
 	
 	@Test
-public void CSR_Order() throws Exception
+public void CSR_RemorseCancel() throws Exception
 	{
-		
-
-	
-				appFunc.Login_EOM(driver);							
-
-			
-				i=appFunc.AddItemsToCartPickUpInStore(driver, testData, rowCount);
+		    appFunc.Login_EOM(driver);
+		    
+		    i=appFunc.AddItemsToCartShipToStore(driver, testData, rowCount);
 				
-			    appFunc.CheckoutAndSelectRegisteredCustomer(driver);
-			    
-			    appFunc.ProceedToPaymentAndPayWithGiftCard(driver);
-			    
-			    String orderNum=appFunc.ProceedToSummaryAndPlaceOrder(driver);
+				appFunc.CheckoutAndSelectRegisteredCustomer(driver);
+				appFunc.ProceedToPaymentAndPayWithGiftCard(driver);
+				String orderNum=appFunc.ProceedToSummaryAndPlaceOrder(driver);
+				
 				report.pass(func.extentLabel("Order#: "+orderNum, ExtentColor.GREEN));
-				objExcel.updateExcel(".\\TestData","TestDataFile.xlsx","BOPIS_TestData", orderNum, i-1, 8);
-								
+				//System.out.println("row: "+i);
+				objExcel.updateExcel(".\\TestData","TestDataFile.xlsx","STS_TestData", orderNum, i-1, 8);
+
 	}
 	
 	@AfterMethod(alwaysRun=true)
-
 	public void Capture_Screenshot(ITestResult result) throws Exception 
 	{
 		 
@@ -128,31 +113,27 @@ public void CSR_Order() throws Exception
 		{
 			FileUtils.copyFile(source, new File("./test-output/Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_PASS.png"));
 			//test.addScreenCaptureFromPath("../Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_PASS.png");
-			//MediaEntityModelProvider mediaModel=MediaEntityBuilder.createScreenCaptureFromPath(result.getInstanceName()+"_"+result.getName()+"_PASS.png").build();
-			//report.info("Details", mediaModel);
-			
+			report.addScreenCaptureFromPath("./test-output/Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_PASS.png");
 		}
 		else
 		{
-
 			FileUtils.copyFile(source, new File("./test-output/Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_FAIL.png"));
 			report.fail("Test Failed - please refer log file & screnshot for the exact error details");
-			//MediaEntityModelProvider mediaModel=MediaEntityBuilder.createScreenCaptureFromPath(result.getInstanceName()+"_"+result.getName()+"FAIL.png").build();
-			//report.info("Details", mediaModel);
+			report.addScreenCaptureFromPath("./test-output/Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_FAIL.png");
+			//test.addScreenCaptureFromPath("../Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_FAIL.png");
 		}
 		//System.out.println("Screenshot has been captured for the test"+result.getName());
 		//test.addScreenCaptureFromPath("../Screenshots/"+result.getName()+".png");
 	}
-//	
+	
+	
 	@AfterClass(alwaysRun=true)
-	public void teardown() throws Exception{
-		//func.Capture_Screenshot(result, ts);
+	public void teardown(){
 		extent.flush();
 		driver.close();
 		driver.quit();
-		System.out.println("********************END of 'Buy Online Pickup In Store_CSR Test'*************************");
+		System.out.println("********************END of 'Ship To Store_CSR Test'*************************");
 	}
 
-
+	
 }
-

@@ -2,6 +2,7 @@ package tests;
 
 import utilities.ExcelUtilities;
 import utilities.GenericFunctions;
+import utilities.AppGenericFunctions;
 import utilities.ObjectMap;
 
 import java.util.concurrent.TimeUnit;
@@ -44,12 +45,13 @@ public class SFS_CSROrder {
 	
 	public ObjectMap objMap;
 	public GenericFunctions func;
+	public AppGenericFunctions appFunc;
 	ExcelUtilities objExcel;
 	public WebDriver driver;
 	WebDriverWait wait;
 	public TakesScreenshot ts;
 	String[][] testData;
-	public int i,j,row,col;
+	public int i,j,rowCount,colCount;
 	public ITestResult result;
 	ExtentReports extent;
 	ExtentTest report;
@@ -59,6 +61,7 @@ public class SFS_CSROrder {
 		objMap=new ObjectMap(".\\UI Map\\EOM.properties");
 		objExcel=new ExcelUtilities();
 		func=new GenericFunctions();
+		appFunc=new AppGenericFunctions();
 		testData=objExcel.readExcel(".\\TestData","TestDataFile.xlsx","SFS_TestData");
 		System.setProperty("webdriver.chrome.driver",objMap.getValue("chromeDriverPath"));
 		ChromeOptions options=new ChromeOptions();
@@ -73,8 +76,8 @@ public class SFS_CSROrder {
 		extent=func.extentReportInvoke();
 		report=extent.createTest("Ship From Store - CSR order", "SFS CSR Order");
 		
-	row=testData.length;
-	col=testData[0].length;
+		rowCount=testData.length;
+	colCount=testData[0].length;
 	
 	//System.out.println("Row Count: "+row+" ; Column Count: "+col);
 	}
@@ -83,155 +86,17 @@ public class SFS_CSROrder {
 	@Test
 public void CSR_Order() throws Exception
 	{
-		    driver.navigate().to(objMap.getValue("baseUrl"));
-				try {
-					Thread.sleep(7000);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				driver.manage().window().maximize();
-				driver.findElement(objMap.getLocator("userName")).clear();
-				driver.findElement(objMap.getLocator("userName")).sendKeys(objMap.getValue("userNameValue"));
-				//func.TakeScreenShot("Enter_User_Name",ts);
-				driver.findElement(objMap.getLocator("passWord")).clear();
-				driver.findElement(objMap.getLocator("passWord")).sendKeys(objMap.getValue("passWordValue"));
-				//func.TakeScreenShot("Enter_Password",ts);
-				Thread.sleep(3000);
-				driver.findElement(objMap.getLocator("loginButton")).click();
-				Thread.sleep(10000);
-									
-			  /*  driver.switchTo().activeElement().click();
-				driver.findElement(objMap.getLocator("selectStore173")).click();
-				TakeScreenShot("SelectStore",ts);
-				//Thread.sleep(5000);
-				wait.until(ExpectedConditions.elementToBeClickable(objMap.getLocator("okButtonSelectStore")));
-                driver.findElement(objMap.getLocator("okButtonSelectStore")).click();
-                */
-				//TakeScreenShot("EOM_HomePage",ts);
-
-				Actions act=new Actions(driver);
-				act.moveToElement(driver.findElement(By.xpath("//div[contains(@id,'ds-itemtile-')]"))).build().perform();
-				//act.moveToElement(driver.findElement(By.xpath("//div[contains(@id,'ds-itemtile-')]//*[contains(@id,'triggerfield')] [contains(@placeholder,'item description')]"))).click().perform();
-				
-			    report.info("Able to login successfully");
-			    Thread.sleep(3000);
-				
-				
-				addLine:
-				for(i=1;i<row;i++)
-				{
-					if(i==1)
-					{
-					driver.findElement(objMap.getLocator("itemTileSearchByItem")).click();						
-					driver.findElement(objMap.getLocator("itemTileSearchByItem")).clear();
-					driver.findElement(objMap.getLocator("itemTileSearchByItem")).sendKeys(testData[i][1]);
-					driver.findElement(objMap.getLocator("itemTileSearchByItem")).click();
-					driver.findElement(objMap.getLocator("itemTileSearchByItemSearchIcon")).click();
-					}
-					else
-					{
-						wait.until(ExpectedConditions.elementToBeClickable(objMap.getLocator("itemSearchByKeyword")));
-						Thread.sleep(5000);
-						driver.findElement(objMap.getLocator("itemSearchByKeyword")).click();						
-						driver.findElement(objMap.getLocator("itemSearchByKeyword")).clear();
-						driver.findElement(objMap.getLocator("itemSearchByKeyword")).sendKeys(testData[i][1]);
-						driver.findElement(objMap.getLocator("itemSearchByKeyword")).click();	
-						driver.findElement(objMap.getLocator("itemSearchByKeywordSearchIcon")).click();
-					}
-//				Robot rb=new Robot();
-//	
-//				rb.keyPress(KeyEvent.VK_ENTER);
-//				rb.keyRelease(KeyEvent.VK_ENTER);
-
-				wait.until(ExpectedConditions.elementToBeClickable(objMap.getLocator("shipToAddressRadioButton")));
-					Thread.sleep(3000);			
-                driver.findElement(objMap.getLocator("shipToAddressRadioButton")).click();
-                
-
-         //   func.moveToElement(objMap.getLocator("addItemToCart"));
-            driver.findElement(objMap.getLocator("addItemToCart")).click();
-            report.pass(func.extentLabel(testData[i][1]+" has been successfully added to the cart", ExtentColor.GREY));
-	        Thread.sleep(5000);
-            wait.until(ExpectedConditions.elementToBeClickable(objMap.getLocator("itemSearchByKeyword")));
-
-				if (!((i+1)==row))
-				{
-				if (testData[i][0]==testData[i+1][0])
-				{
-					System.out.println("Adding remaining items to the cart");
-					report.info("Adding remaining items to the cart");
-					Thread.sleep(5000);
-					continue addLine;
-				}
-				}
-				else
-				{
-					Thread.sleep(5000);
-				}
-				}//for loop close
-				
-				driver.findElement(objMap.getLocator("checkout")).click();
-				wait.until(ExpectedConditions.elementToBeClickable(objMap.getLocator("customerSearch_Registered")));
-				driver.findElement(objMap.getLocator("customerSearch_Registered")).click();
-				driver.findElement(objMap.getLocator("customerSearch_Registered")).sendKeys(objMap.getValue("eomRegisteredCustomer"));
-				
-				driver.findElement(objMap.getLocator("customerSearch_Registered")).click();
-				Thread.sleep(3000);
-				driver.findElement(By.xpath("//label[text()='IDENTIFY REGISTERED CUSTOMER']//following::input[contains(@id,'olm-customersearchcombo')][@placeholder='name, email, phone']/following::div[1]")).click();
-				Actions builder=new Actions(driver);
-				Action seriesofActions=builder.sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).build();
-				seriesofActions.perform();
-				
-				
-//				Thread.sleep(3000);
-//				Robot robot=new Robot();
-//				robot.keyPress(KeyEvent.VK_ENTER);
-//				robot.keyRelease(KeyEvent.VK_ENTER);
-				Thread.sleep(5000);
-				driver.findElement(objMap.getLocator("doneSelectCustomer_Registered")).click();
-				report.info("Customer ID: "+objMap.getValue("eomRegisteredCustomer")+" has been selected");	
-				Thread.sleep(5000);
-				driver.findElement(objMap.getLocator("proceedToPayment")).click();
-				Thread.sleep(4000);
-				driver.findElement(objMap.getLocator("addGiftCardLabel")).click();
-				driver.findElement(objMap.getLocator("giftCardNum")).click();
-				driver.findElement(objMap.getLocator("giftCardNum")).sendKeys(objMap.getValue("giftCardNumber"));
-				driver.findElement(objMap.getLocator("giftCardPin")).click();
-				driver.findElement(objMap.getLocator("giftCardPin")).sendKeys(objMap.getValue("gcPin"));	
-				driver.findElement(objMap.getLocator("giftCardAdd")).click();
-				report.info("Payment has been added successfully");
-				Thread.sleep(3000);
-				driver.findElement(objMap.getLocator("proceedToSummary")).click();
-				Thread.sleep(3000);
-				driver.findElement(objMap.getLocator("placeOrder")).click();
-				Thread.sleep(7000);
-				//func.TakeScreenShot(Thread.currentThread().getName()+"_Screenshot_"+func.getCurrentDateTime(), ts);
-				String orderNumRaw=driver.findElement(objMap.getLocator("orderConfirmationMessage")).getText();
-				String[] orderNumarr=orderNumRaw.split(Pattern.quote("("));
-				//System.out.println("Value:"+orderNumarr[1].substring(0, 8));
-				String orderNum=orderNumarr[1].substring(0, 8);
-				System.out.println("BOPIS Order#: "+orderNum+" has been created");
-				if(func.isElementPresent(objMap.getLocator("xCloseConcurrencyException")))
-				{
-					driver.findElement(objMap.getLocator("xCloseConcurrencyException")).click();
-				}
-				
-				driver.findElement(objMap.getLocator("orderConfirmSaveButton")).click();
-				Thread.sleep(2000);
-				if(func.isElementPresent(objMap.getLocator("xCloseConcurrencyException")))
-				{
-					driver.findElement(objMap.getLocator("xCloseConcurrencyException")).click();
-				}
-				driver.findElement(objMap.getLocator("xCloseCustInfoSAVE")).click();
-				Thread.sleep(5000);
-				if(func.isElementPresent(objMap.getLocator("xCloseConcurrencyException")))
-				{
-					driver.findElement(objMap.getLocator("xCloseConcurrencyException")).click();
-				}
-				report.pass(func.extentLabel("Order#: "+orderNum, ExtentColor.GREEN));
-				//System.out.println("row: "+i);
-				objExcel.updateExcel(".\\TestData","TestDataFile.xlsx","SFS_TestData", orderNum, i-1, 8);
+			appFunc.Login_EOM(driver);
+	    
+			i=appFunc.AddItemsToCartShipToAddress(driver, testData, rowCount);
+			
+			appFunc.CheckoutAndSelectRegisteredCustomer(driver);
+			appFunc.ProceedToPaymentAndPayWithGiftCard(driver);
+			String orderNum=appFunc.ProceedToSummaryAndPlaceOrder(driver);
+			
+			report.pass(func.extentLabel("Order#: "+orderNum, ExtentColor.GREEN));
+			//System.out.println("row: "+i);
+			objExcel.updateExcel(".\\TestData","TestDataFile.xlsx","SFS_TestData", orderNum, i-1, 8);
 
 	}
 	@AfterMethod(alwaysRun=true)
