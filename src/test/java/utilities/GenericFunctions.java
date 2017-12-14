@@ -16,6 +16,7 @@ import java.util.concurrent.TimeUnit;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 //import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
@@ -167,6 +168,23 @@ public class GenericFunctions {
     //Action seriesofActionsExample=builder.moveToElement(element).keyDown(Keys.SHIFT).sendKeys("SEND SOME TEXT").keyUp(Keys.SHIFT).doubleClick().contextClick().build();
        seriesofActions.perform();
 	}
+	
+	public void mouseHoverOnElement(WebDriver driver,WebElement element) throws Exception
+	{
+    Actions builder=new Actions(driver);
+    Action seriesofActions=builder.moveToElement(element).build();
+    //Action seriesofActionsExample=builder.moveToElement(element).keyDown(Keys.SHIFT).sendKeys("SEND SOME TEXT").keyUp(Keys.SHIFT).doubleClick().contextClick().build();
+       seriesofActions.perform();
+	}
+	
+	public void keyBoard_DownArrowAndEnterkeys(WebDriver driver) throws Exception
+	{
+		Actions builder=new Actions(driver);
+		Action seriesofActions=builder.sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).build();
+		seriesofActions.perform();
+		Thread.sleep(5000);
+	}
+	
 	
 	public WebDriver dynamicBrowserSelection(String browsername)
 	{

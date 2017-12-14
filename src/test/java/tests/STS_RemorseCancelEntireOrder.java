@@ -97,11 +97,22 @@ public void CSR_RemorseCancel() throws Exception
 				//System.out.println("row: "+i);
 				objExcel.updateExcel(".\\TestData","TestDataFile.xlsx","STS_TestData", orderNum, i-1, 8);
 				Thread.sleep(5000);
-//			driver.findElement(By.xpath("//span[text()='MORE']")).click();
-//			Thread.sleep(2000);
-//			driver.findElement(By.xpath("//span[text()='CANCEL  ORDER']")).click();
-			
-
+				
+				driver.findElement(objMap.getLocator("cancelOrderHyperlink")).click();
+				driver.findElement(objMap.getLocator("cancelReasonCodeComboBox")).click();
+				driver.findElement(objMap.getLocator("cancelReasonCode_CustomerChangedMind")).click();
+				driver.findElement(objMap.getLocator("commentCancelOrder")).sendKeys("Order cancelled at "+func.getCurrentDateTime());
+				driver.findElement(objMap.getLocator("doneButton")).click();
+				Thread.sleep(5000);
+				driver.findElement(objMap.getLocator("homeButton")).click();	
+				Thread.sleep(2000);
+				func.mouseHoverOnElement(driver, driver.findElement(objMap.getLocator("orderTile")));
+				Thread.sleep(3000);
+				driver.findElement(objMap.getLocator("orderTile_SearchByOrderNumber")).sendKeys(orderNum);
+				driver.findElement(objMap.getLocator("orderTile_SearchByOrderNumberSearchIcon")).click();
+				func.keyBoard_DownArrowAndEnterkeys(driver);
+				report.pass(func.extentLabel("Order#: "+orderNum+" has been canceled", ExtentColor.LIME));
+		
 	}
 	
 	@AfterMethod(alwaysRun=true)
