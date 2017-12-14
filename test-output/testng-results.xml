@@ -2,35 +2,20 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="103776" started-at="2017-12-13T21:38:45Z" finished-at="2017-12-13T21:40:29Z">
+  <suite name="Default suite" duration-ms="94437" started-at="2017-12-14T19:12:36Z" finished-at="2017-12-14T19:14:10Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="103776" started-at="2017-12-13T21:38:45Z" finished-at="2017-12-13T21:40:29Z">
-      <class name="tests.STS_RemorseCancelEntireOrder">
-        <test-method status="PASS" signature="Setup()[pri:0, instance:tests.STS_RemorseCancelEntireOrder@6500df86]" name="Setup" is-config="true" duration-ms="2571" started-at="2017-12-13T16:38:45Z" finished-at="2017-12-13T16:38:48Z">
+    <test name="Default test" duration-ms="94437" started-at="2017-12-14T19:12:36Z" finished-at="2017-12-14T19:14:10Z">
+      <class name="tests.STH_AppeasementAtOrderCreation">
+        <test-method status="PASS" signature="Setup()[pri:0, instance:tests.STH_AppeasementAtOrderCreation@3fee9989]" name="Setup" is-config="true" duration-ms="2535" started-at="2017-12-14T14:12:36Z" finished-at="2017-12-14T14:12:38Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Setup -->
-        <test-method status="PASS" signature="CSR_RemorseCancel()[pri:0, instance:tests.STS_RemorseCancelEntireOrder@6500df86]" name="CSR_RemorseCancel" duration-ms="97345" started-at="2017-12-13T16:38:48Z" finished-at="2017-12-13T16:40:25Z">
+        <test-method status="PASS" signature="CSR_Order()[pri:0, instance:tests.STH_AppeasementAtOrderCreation@3fee9989]" name="CSR_Order" duration-ms="91889" started-at="2017-12-14T14:12:38Z" finished-at="2017-12-14T14:14:10Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- CSR_RemorseCancel -->
-        <test-method status="PASS" signature="Capture_Screenshot(org.testng.ITestResult)[pri:0, instance:tests.STS_RemorseCancelEntireOrder@6500df86]" name="Capture_Screenshot" is-config="true" duration-ms="389" started-at="2017-12-13T16:40:25Z" finished-at="2017-12-13T16:40:25Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=CSR_RemorseCancel status=SUCCESS method=STS_RemorseCancelEntireOrder.CSR_RemorseCancel()[pri:0, instance:tests.STS_RemorseCancelEntireOrder@6500df86] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Capture_Screenshot -->
-        <test-method status="PASS" signature="teardown()[pri:0, instance:tests.STS_RemorseCancelEntireOrder@6500df86]" name="teardown" is-config="true" duration-ms="3457" started-at="2017-12-13T16:40:25Z" finished-at="2017-12-13T16:40:29Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- teardown -->
-      </class> <!-- tests.STS_RemorseCancelEntireOrder -->
+        </test-method> <!-- CSR_Order -->
+      </class> <!-- tests.STH_AppeasementAtOrderCreation -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

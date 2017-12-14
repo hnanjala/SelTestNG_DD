@@ -96,6 +96,11 @@ public void CSR_RemorseCancel() throws Exception
 				report.pass(func.extentLabel("Order#: "+orderNum, ExtentColor.GREEN));
 				//System.out.println("row: "+i);
 				objExcel.updateExcel(".\\TestData","TestDataFile.xlsx","STS_TestData", orderNum, i-1, 8);
+				Thread.sleep(5000);
+//			driver.findElement(By.xpath("//span[text()='MORE']")).click();
+//			Thread.sleep(2000);
+//			driver.findElement(By.xpath("//span[text()='CANCEL  ORDER']")).click();
+			
 
 	}
 	

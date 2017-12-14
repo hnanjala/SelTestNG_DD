@@ -3,14 +3,12 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="tests.STS_RemorseCancelEntireOrder">
+      <class name="tests.STH_AppeasementAtOrderCreation">
         <methods>
           <include name="Setup"/>
-          <include name="Capture_Screenshot"/>
-          <include name="CSR_RemorseCancel"/>
-          <include name="teardown"/>
+          <include name="CSR_Order"/>
         </methods>
-      </class> <!-- tests.STS_RemorseCancelEntireOrder -->
+      </class> <!-- tests.STH_AppeasementAtOrderCreation -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
