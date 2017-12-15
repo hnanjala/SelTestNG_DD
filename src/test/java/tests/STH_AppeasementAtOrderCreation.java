@@ -298,33 +298,10 @@ public void CSR_Order() throws Exception
 @AfterMethod(alwaysRun=true)
 
 public void Capture_Screenshot(ITestResult result) throws Exception 
-{
- 
-// Call method to capture screenshot
-File source=ts.getScreenshotAs(OutputType.FILE);
-
- 
-// Copy files to specific location here it will save all screenshot in our project home directory and
-// result.getName() will return name of test case so that screenshot name will be same
-if(result.getStatus()==1) 
-{
-	FileUtils.copyFile(source, new File("./test-output/Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_PASS.png"));
-	//test.addScreenCaptureFromPath("../Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_PASS.png");
-	report.addScreenCaptureFromPath("./test-output/Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_PASS.png");
+	{
+		func.Capture_Screenshot(result, ts, report);
+	}
 	
-}
-else
-{
-
-	FileUtils.copyFile(source, new File("./test-output/Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_FAIL.png"));
-	report.fail("Test Failed - please refer log file & screnshot for the exact error details");
-	report.addScreenCaptureFromPath("./test-output/Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_FAIL.png");
-	//test.addScreenCaptureFromPath("../Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_FAIL.png");
-}
-//System.out.println("Screenshot has been captured for the test"+result.getName());
-//test.addScreenCaptureFromPath("../Screenshots/"+result.getName()+".png");
-}
-//
 @AfterClass(alwaysRun=true)
 public void teardown() throws Exception{
 //func.Capture_Screenshot(result, ts);

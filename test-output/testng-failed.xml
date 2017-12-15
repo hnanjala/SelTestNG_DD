@@ -6,7 +6,9 @@
       <class name="tests.STS_RemorseCancelEntireOrder">
         <methods>
           <include name="Setup"/>
+          <include name="Capture_Screenshot"/>
           <include name="CSR_RemorseCancel"/>
+          <include name="teardown"/>
         </methods>
       </class> <!-- tests.STS_RemorseCancelEntireOrder -->
     </classes>

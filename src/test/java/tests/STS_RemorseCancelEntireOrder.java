@@ -26,9 +26,11 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import org.testng.Assert;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 
 import org.apache.commons.io.FileUtils;
@@ -110,45 +112,33 @@ public void CSR_RemorseCancel() throws Exception
 				Thread.sleep(3000);
 				driver.findElement(objMap.getLocator("orderTile_SearchByOrderNumber")).sendKeys(orderNum);
 				driver.findElement(objMap.getLocator("orderTile_SearchByOrderNumberSearchIcon")).click();
+				Thread.sleep(3000);
 				func.keyBoard_DownArrowAndEnterkeys(driver);
 				report.pass(func.extentLabel("Order#: "+orderNum+" has been canceled", ExtentColor.LIME));
+				Thread.sleep(3000);
+//				if(func.isElementPresent(driver,objMap.getLocator("coHeaderStatus_Canceled")))
+//				{
+//					report.info("Step 2", MediaEntityBuilder.createScreenCaptureFromPath("./Screenshots/tests.STS_CSROrder_CSR_Order_PASS.png").build());
+//					
+//				}
+				
+			    Assert.assertTrue(func.isElementPresent(driver,objMap.getLocator("coHeaderStatus_Canceled")), "Order Status has NOT changed to 'Canceled'");
 		
 	}
 	
 	@AfterMethod(alwaysRun=true)
 	public void Capture_Screenshot(ITestResult result) throws Exception 
 	{
-		 
-		// Call method to capture screenshot
-		File source=ts.getScreenshotAs(OutputType.FILE);
-
-		 
-		// Copy files to specific location here it will save all screenshot in our project home directory and
-		// result.getName() will return name of test case so that screenshot name will be same
-		if(result.getStatus()==1) 
-		{
-			FileUtils.copyFile(source, new File("./test-output/Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_PASS.png"));
-			//test.addScreenCaptureFromPath("../Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_PASS.png");
-			report.addScreenCaptureFromPath("./test-output/Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_PASS.png");
-		}
-		else
-		{
-			FileUtils.copyFile(source, new File("./test-output/Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_FAIL.png"));
-			report.fail("Test Failed - please refer log file & screnshot for the exact error details");
-			report.addScreenCaptureFromPath("./test-output/Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_FAIL.png");
-			//test.addScreenCaptureFromPath("../Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_FAIL.png");
-		}
-		//System.out.println("Screenshot has been captured for the test"+result.getName());
-		//test.addScreenCaptureFromPath("../Screenshots/"+result.getName()+".png");
+		func.Capture_Screenshot(result, ts, report);
 	}
 	
-	
+		
 	@AfterClass(alwaysRun=true)
 	public void teardown(){
 		extent.flush();
 		driver.close();
 		driver.quit();
-		System.out.println("********************END of 'Ship To Store_CSR Test'*************************");
+		System.out.println("*******************************************************************");
 	}
 
 	

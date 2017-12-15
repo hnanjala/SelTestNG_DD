@@ -247,19 +247,19 @@ public void CSR_Order() throws Exception
 		//System.out.println("Value:"+orderNumarr[1].substring(0, 8));
 		String orderNum=orderNumarr[1].substring(0, 8);
 		System.out.println("STH Guest Order#: "+orderNum+" has been created");
-		if(func.isElementPresent(objMap.getLocator("xCloseConcurrencyException")))
+		if(func.isElementPresent(driver,objMap.getLocator("xCloseConcurrencyException")))
 		{
 			driver.findElement(objMap.getLocator("xCloseConcurrencyException")).click();
 		}
 		driver.findElement(objMap.getLocator("orderConfirmSaveButton")).click();
 		Thread.sleep(2000);
-		if(func.isElementPresent(objMap.getLocator("xCloseConcurrencyException")))
+		if(func.isElementPresent(driver,objMap.getLocator("xCloseConcurrencyException")))
 		{
 			driver.findElement(objMap.getLocator("xCloseConcurrencyException")).click();
 		}
 		driver.findElement(objMap.getLocator("xCloseCustInfoSAVE")).click();
 		Thread.sleep(5000);
-		if(func.isElementPresent(objMap.getLocator("xCloseConcurrencyException")))
+		if(func.isElementPresent(driver,objMap.getLocator("xCloseConcurrencyException")))
 		{
 			driver.findElement(objMap.getLocator("xCloseConcurrencyException")).click();
 		}

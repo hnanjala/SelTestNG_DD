@@ -84,25 +84,41 @@ public class GenericFunctions {
 	} 
 	}
 	
-	public void Capture_Screenshot(ITestResult result,TakesScreenshot ts) throws Exception 
+	public void Capture_Screenshot(ITestResult result,TakesScreenshot ts,ExtentTest report) throws Exception 
 	{
 		 
 		// Call method to capture screenshot
 		File source=ts.getScreenshotAs(OutputType.FILE);
+		
+		if(result.getStatus()==1) 
+		{
+			FileUtils.copyFile(source, new File("./Execution Reports/HTML Reports/Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_PASS.png"));
+			//test.addScreenCaptureFromPath("../Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_PASS.png");
+			Thread.sleep(2000);
+			report.addScreenCaptureFromPath("./Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_PASS.png");
+		}
+		else
+		{
+			FileUtils.copyFile(source, new File("./Execution Reports/HTML Reports/Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_FAIL.png"));
+			report.fail("Test Failed - please refer log file & screnshot for the exact error details");
+			Thread.sleep(2000);
+			report.addScreenCaptureFromPath("./Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_FAIL.png");
+			//test.addScreenCaptureFromPath("../Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_FAIL.png");
+		}
 
 		 
 		// Copy files to specific location here it will save all screenshot in our project home directory and
 		// result.getName() will return name of test case so that screenshot name will be same
-		if(result.getStatus()==1) 
-		{
-			FileUtils.copyFile(source, new File("./test-output/Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_PASS.png"));
-			//test.addScreenCaptureFromPath("../Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_PASS.png");
-		}
-		else
-		{
-			FileUtils.copyFile(source, new File("./test-output/Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_FAIL.png"));
-			//test.addScreenCaptureFromPath("../Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_FAIL.png");
-		}
+//		if(result.getStatus()==1) 
+//		{
+//			FileUtils.copyFile(source, new File("./test-output/Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_PASS.png"));
+//			//test.addScreenCaptureFromPath("../Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_PASS.png");
+//		}
+//		else
+//		{
+//			FileUtils.copyFile(source, new File("./test-output/Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_FAIL.png"));
+//			//test.addScreenCaptureFromPath("../Screenshots/"+result.getInstanceName()+"_"+result.getName()+"_FAIL.png");
+//		}
 		System.out.println("Screenshot has been captured for the test"+result.getName());
 		//test.addScreenCaptureFromPath("../Screenshots/"+result.getName()+".png");
 	}
@@ -316,9 +332,9 @@ String username = "EOM2015";
 
 	}
 	
-	public boolean isElementPresent(By by) {
+	public boolean isElementPresent(WebDriver driver,By by) {
 		 try {
-		   driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		   driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
 		   driver.findElement(by);
 		   return true;
 		 } catch (Exception e) {

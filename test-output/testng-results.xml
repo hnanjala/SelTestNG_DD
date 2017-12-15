@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="125447" started-at="2017-12-14T20:46:46Z" finished-at="2017-12-14T20:48:51Z">
+  <suite name="Default suite" duration-ms="156788" started-at="2017-12-15T20:53:46Z" finished-at="2017-12-15T20:56:23Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="125447" started-at="2017-12-14T20:46:46Z" finished-at="2017-12-14T20:48:51Z">
+    <test name="Default test" duration-ms="156788" started-at="2017-12-15T20:53:46Z" finished-at="2017-12-15T20:56:23Z">
       <class name="tests.STS_RemorseCancelEntireOrder">
-        <test-method status="PASS" signature="Setup()[pri:0, instance:tests.STS_RemorseCancelEntireOrder@6500df86]" name="Setup" is-config="true" duration-ms="2626" started-at="2017-12-14T15:46:46Z" finished-at="2017-12-14T15:46:48Z">
+        <test-method status="PASS" signature="Setup()[pri:0, instance:tests.STS_RemorseCancelEntireOrder@6500df86]" name="Setup" is-config="true" duration-ms="2795" started-at="2017-12-15T15:53:46Z" finished-at="2017-12-15T15:53:49Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Setup -->
-        <test-method status="PASS" signature="CSR_RemorseCancel()[pri:0, instance:tests.STS_RemorseCancelEntireOrder@6500df86]" name="CSR_RemorseCancel" duration-ms="119003" started-at="2017-12-14T15:46:48Z" finished-at="2017-12-14T15:48:47Z">
+        <test-method status="PASS" signature="CSR_RemorseCancel()[pri:0, instance:tests.STS_RemorseCancelEntireOrder@6500df86]" name="CSR_RemorseCancel" duration-ms="148290" started-at="2017-12-15T15:53:49Z" finished-at="2017-12-15T15:56:17Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CSR_RemorseCancel -->
-        <test-method status="PASS" signature="Capture_Screenshot(org.testng.ITestResult)[pri:0, instance:tests.STS_RemorseCancelEntireOrder@6500df86]" name="Capture_Screenshot" is-config="true" duration-ms="375" started-at="2017-12-14T15:48:47Z" finished-at="2017-12-14T15:48:48Z">
+        <test-method status="PASS" signature="Capture_Screenshot(org.testng.ITestResult)[pri:0, instance:tests.STS_RemorseCancelEntireOrder@6500df86]" name="Capture_Screenshot" is-config="true" duration-ms="2375" started-at="2017-12-15T15:56:17Z" finished-at="2017-12-15T15:56:19Z">
           <params>
             <param index="0">
               <value>
@@ -26,7 +26,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Capture_Screenshot -->
-        <test-method status="PASS" signature="teardown()[pri:0, instance:tests.STS_RemorseCancelEntireOrder@6500df86]" name="teardown" is-config="true" duration-ms="3426" started-at="2017-12-14T15:48:48Z" finished-at="2017-12-14T15:48:51Z">
+        <test-method status="PASS" signature="teardown()[pri:0, instance:tests.STS_RemorseCancelEntireOrder@6500df86]" name="teardown" is-config="true" duration-ms="3311" started-at="2017-12-15T15:56:19Z" finished-at="2017-12-15T15:56:23Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
