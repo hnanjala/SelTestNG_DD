@@ -5,11 +5,13 @@
 		<listener class-name="utilities.Listeners"></listener>
 		<listener class-name="utilities.AnnotationTransformer"></listener>
 	</listeners>
-	<test name="Test" parallel="false" thread-count="5">
+	<test name="Test" parallel="true" thread-count="5">
 		<classes>
 			<class name="tests.BOPIS_CSROrder" />
-           <class name="tests.SFS_CSROrder" />
+            <class name="tests.SFS_CSROrder" />
 		    <class name="tests.STS_CSROrder" /> 
+		    <class name="tests.STS_RemorseCancelEntireOrder" />
+		    <class name="tests.STS_SLMQ_Visa" />
 		</classes>
 	</test> <!-- Test -->
 

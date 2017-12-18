@@ -93,6 +93,51 @@ public class AppGenericFunctions {
 	
 	//*********************************************************************************************************************************//
 	
+	
+	public void ProceedToPaymentAndPayWithVisa(WebDriver driver) throws Exception
+	{
+		driver.findElement(objMap.getLocator("proceedToPayment")).click();
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//label[contains(text(),'Visa ending with 2222')]")).click();
+		driver.findElement(By.xpath("//label[contains(text(),'Visa ending with 2222')]/following::input[@name='securityCode'][1]")).sendKeys("234");
+		driver.findElement(By.xpath("//label[contains(text(),'Visa ending with 2222')]/following::input[@name='securityCode'][1]/following::span[text()='ADD'][1]")).click();
+		
+		//report.info("Payment has been added successfully");
+		Thread.sleep(5000);
+	}
+	
+	//*********************************************************************************************************************************//
+	
+	
+	public void ProceedToPaymentAndPayWithMaster(WebDriver driver) throws Exception
+	{
+		driver.findElement(objMap.getLocator("proceedToPayment")).click();
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//label[contains(text(),'Master Card ending with 1773')]")).click();
+		driver.findElement(By.xpath("//label[contains(text(),'Master Card ending with 1773')]/following::input[@name='securityCode'][1]")).sendKeys("234");
+		driver.findElement(By.xpath("//label[contains(text(),'Master Card ending with 1773')]/following::input[@name='securityCode'][1]/following::span[text()='ADD'][1]")).click();
+		
+		//report.info("Payment has been added successfully");
+		Thread.sleep(5000);
+	}
+	
+	//*********************************************************************************************************************************//
+	
+	
+	public void ProceedToPaymentAndPayWithDiscover(WebDriver driver) throws Exception
+	{
+		driver.findElement(objMap.getLocator("proceedToPayment")).click();
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//label[contains(text(),'Discover ending with 0035')]")).click();
+		driver.findElement(By.xpath("//label[contains(text(),'Discover ending with 0035')]/following::input[@name='securityCode'][1]")).sendKeys("234");
+		driver.findElement(By.xpath("//label[contains(text(),'Discover ending with 0035')]/following::input[@name='securityCode'][1]/following::span[text()='ADD'][1]")).click();
+		
+		//report.info("Payment has been added successfully");
+		Thread.sleep(5000);
+	}
+	
+	//*********************************************************************************************************************************//
+	
 	public String ProceedToSummaryAndPlaceOrder(WebDriver driver) throws Exception
 	{
 		driver.findElement(objMap.getLocator("proceedToSummary")).click();
