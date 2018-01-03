@@ -69,7 +69,7 @@ public class SFS_CSROrder {
 		//DesiredCapabilities capabilities=new DesiredCapabilities();
 		//capabilities.setCapability(ChromeOptions.CAPABILITY, options);
 		driver=new ChromeDriver(options);
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		wait=new WebDriverWait(driver,15);
 		ts=(TakesScreenshot)driver;
 		

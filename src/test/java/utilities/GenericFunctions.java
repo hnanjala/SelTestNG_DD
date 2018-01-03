@@ -123,7 +123,7 @@ public class GenericFunctions {
 		//test.addScreenCaptureFromPath("../Screenshots/"+result.getName()+".png");
 	}
 
-	public void moveToElement (By by) throws Exception
+	public void moveToElement (WebDriver driver, By by) throws Exception
 	{
 	WebElement element = driver.findElement(by);
 	((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);",element);

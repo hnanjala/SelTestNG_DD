@@ -65,6 +65,8 @@ public class AppGenericFunctions {
 	
 	public void ProceedToPaymentAndPayWithGiftCard(WebDriver driver) throws Exception
 	{
+		func.moveToElement(driver,objMap.getLocator("proceedToPayment"));
+		Thread.sleep(2000);
 		driver.findElement(objMap.getLocator("proceedToPayment")).click();
 		Thread.sleep(4000);
 		driver.findElement(objMap.getLocator("addGiftCardLabel")).click();
@@ -81,6 +83,8 @@ public class AppGenericFunctions {
 	
 	public void ProceedToPaymentAndPayWithAmex(WebDriver driver) throws Exception
 	{
+		func.moveToElement(driver,objMap.getLocator("proceedToPayment"));
+		Thread.sleep(2000);
 		driver.findElement(objMap.getLocator("proceedToPayment")).click();
 		Thread.sleep(5000);
 		driver.findElement(By.xpath("//label[contains(text(),'Amex ending with 1004')]")).click();
@@ -96,6 +100,8 @@ public class AppGenericFunctions {
 	
 	public void ProceedToPaymentAndPayWithVisa(WebDriver driver) throws Exception
 	{
+		func.moveToElement(driver,objMap.getLocator("proceedToPayment"));
+		Thread.sleep(2000);
 		driver.findElement(objMap.getLocator("proceedToPayment")).click();
 		Thread.sleep(5000);
 		driver.findElement(By.xpath("//label[contains(text(),'Visa ending with 2222')]")).click();
@@ -111,6 +117,8 @@ public class AppGenericFunctions {
 	
 	public void ProceedToPaymentAndPayWithMaster(WebDriver driver) throws Exception
 	{
+		func.moveToElement(driver,objMap.getLocator("proceedToPayment"));
+		Thread.sleep(2000);
 		driver.findElement(objMap.getLocator("proceedToPayment")).click();
 		Thread.sleep(5000);
 		driver.findElement(By.xpath("//label[contains(text(),'Master Card ending with 1773')]")).click();
@@ -126,6 +134,8 @@ public class AppGenericFunctions {
 	
 	public void ProceedToPaymentAndPayWithDiscover(WebDriver driver) throws Exception
 	{
+		func.moveToElement(driver,objMap.getLocator("proceedToPayment"));
+		Thread.sleep(2000);
 		driver.findElement(objMap.getLocator("proceedToPayment")).click();
 		Thread.sleep(5000);
 		driver.findElement(By.xpath("//label[contains(text(),'Discover ending with 0035')]")).click();
@@ -150,6 +160,7 @@ public class AppGenericFunctions {
 		//System.out.println("Value:"+orderNumarr[1].substring(0, 8));
 		String orderNum=orderNumarr[1].substring(0, 8);
 		System.out.println("BOPIS Order#: "+orderNum+" has been created");
+		Thread.sleep(2000);
 		if(func.isElementPresent(driver,objMap.getLocator("xCloseConcurrencyException")))
 		{
 			driver.findElement(objMap.getLocator("xCloseConcurrencyException")).click();
