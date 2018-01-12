@@ -92,7 +92,7 @@ public void CSR_RemorseCancel() throws Exception
 		    i=appFunc.AddItemsToCartShipToStore(driver, testData, rowCount);
 				
 				appFunc.CheckoutAndSelectRegisteredCustomer(driver);
-				appFunc.ProceedToPaymentAndPayWithAmex(driver);
+				appFunc.ProceedToPaymentAndPayWithGiftCard(driver);
 				String orderNum=appFunc.ProceedToSummaryAndPlaceOrder(driver);
 				
 				report.pass(func.extentLabel("Order#: "+orderNum, ExtentColor.GREEN));

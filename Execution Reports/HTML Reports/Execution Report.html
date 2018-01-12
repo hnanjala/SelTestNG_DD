@@ -44,7 +44,7 @@
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<li>
                 <a href='#!'>
-                    <span class='label suite-start-time blue darken-3'>Jan 3, 2018 10:53:23 AM</span>
+                    <span class='label suite-start-time blue darken-3'>Jan 11, 2018 04:15:18 AM</span>
 				</a>
 			</li>
 			<li>
@@ -69,7 +69,7 @@
 					<i class='material-icons'>warning</i> Status
 				</a>
 				<ul id='tests-toggle' class='dropdown-content'>
-											<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
+											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
 					<li class='divider'></li>
 					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
 				</ul>
@@ -120,10 +120,10 @@
 					<canvas id='parent-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='20%'><span class='strong'>4</span> test(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='28%'><span class='strong'>7</span> test(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='80%'>16</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='72%'>18</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
 				</div>
 			</div>
 		</div>
@@ -135,10 +135,10 @@
 					<canvas id='child-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='3.448%'><span class='strong'>1</span> step(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='14.286%'><span class='strong'>5</span> step(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='96.552%'>28</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='85.714%'>30</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
 				</div>
 			</div>
 		</div>
@@ -834,7 +834,7 @@
 <div class='test-time-info'>
 	<span class='label start-time'>Jan 3, 2018 10:53:23 AM</span>
 	<span class='label end-time'>Jan 3, 2018 10:55:06 AM</span>
-	<span class='label time-taken grey lighten-1 white-text'>0h 1m 43s+564ms</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 43s+0ms</span>
 </div>
 	<div class='test-desc'>SFS CSR Order </div>
 	<div class='test-steps'>
@@ -850,13 +850,193 @@
 				<tr class='log' status='fail'>
 					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
 					<td class='timestamp'>10:55:06 AM</td>
-					<td class='step-details'>Test Failed - please refer log file & screnshot for the exact error details</td>
+					<td class='step-details'>Test Failed - please refer log file &amp; screnshot for the exact error details</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='21'>
+					<div class='test-heading'>
+						<span class='test-name'>Ship From Store - CSR order</span>
+						<span class='test-time'>Jan 10, 2018 10:12:10 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 10, 2018 10:12:10 AM</span>
+	<span class='label end-time'>Jan 10, 2018 10:14:26 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 2m 16s+0ms</span>
+</div>
+	<div class='test-desc'>SFS CSR Order </div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:14:26 AM</td>
+					<td class='step-details'><span class="label white-text green">Order#: 88017475</span></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='22'>
+					<div class='test-heading'>
+						<span class='test-name'>Ship To Store - CSR order</span>
+						<span class='test-time'>Jan 11, 2018 12:24:40 AM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 11, 2018 12:24:40 AM</span>
+	<span class='label end-time'>Jan 11, 2018 12:26:00 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 20s+0ms</span>
+</div>
+	<div class='test-desc'>STS CSR Order </div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>12:26:00 AM</td>
+					<td class='step-details'>Test Failed - please refer log file &amp; screnshot for the exact error details</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='23'>
+					<div class='test-heading'>
+						<span class='test-name'>Ship To Store - CSR order</span>
+						<span class='test-time'>Jan 11, 2018 12:52:46 AM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 11, 2018 12:52:46 AM</span>
+	<span class='label end-time'>Jan 11, 2018 12:54:06 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 20s+0ms</span>
+</div>
+	<div class='test-desc'>STS CSR Order </div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>12:54:06 AM</td>
+					<td class='step-details'>Test Failed - please refer log file &amp; screnshot for the exact error details</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='24'>
+					<div class='test-heading'>
+						<span class='test-name'>Ship To Store - CSR order</span>
+						<span class='test-time'>Jan 11, 2018 01:09:46 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 11, 2018 01:09:46 AM</span>
+	<span class='label end-time'>Jan 11, 2018 01:12:17 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 2m 31s+0ms</span>
+</div>
+	<div class='test-desc'>STS CSR Order </div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>1:11:51 AM</td>
+					<td class='step-details'><span class="label white-text green">Order#: 88017512</span></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>1:12:17 AM</td>
+					<td class='step-details'><span class="label white-text lime">Order#: 88017512 has been canceled</span></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='25'>
+					<div class='test-heading'>
+						<span class='test-name'>Ship From Store - CSR order</span>
+						<span class='test-time'>Jan 11, 2018 04:15:18 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 11, 2018 04:15:18 AM</span>
+	<span class='label end-time'>Jan 11, 2018 04:17:31 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 2m 13s+31ms</span>
+</div>
+	<div class='test-desc'>SFS CSR Order </div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:17:31 AM</td>
+					<td class='step-details'><span class='label white-text green'>Order#: 88017521</span></td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
 							<ul class='screenshots'>
-								<li><img data-featherlight='./Screenshots/tests.SFS_CSROrder_CSR_Order_FAIL.png' width='10%' src='' data-src='./Screenshots/tests.SFS_CSROrder_CSR_Order_FAIL.png'></li>
+								<li><img data-featherlight='./Screenshots/tests.SFS_CSROrder_CSR_Order_PASS.png' width='10%' src='' data-src='./Screenshots/tests.SFS_CSROrder_CSR_Order_PASS.png'></li>
 							</ul>
 					</div>
 				</li>
@@ -895,31 +1075,31 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Tests
-					<div class='panel-lead'>20</div>
+					<div class='panel-lead'>25</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>29</div>
+					<div class='panel-lead'>35</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Jan 3, 2018 10:53:23 AM</div>
+					<div class='panel-lead'>Jan 11, 2018 04:15:18 AM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Jan 3, 2018 10:55:08 AM</div>
+			 		<div class='panel-lead'>Jan 11, 2018 04:17:34 AM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>105,842ms</div>
+					<div class='panel-lead'>136,063ms</div>
 				</div>
 			</div>
 		</div>
@@ -932,22 +1112,22 @@
 
 		<script>
 			var statusGroup = {
-				passParent: 4,
-				failParent: 16,
+				passParent: 7,
+				failParent: 18,
 				fatalParent: 0,
 				errorParent: 0,
 				warningParent: 0,
 				skipParent: 0,
-				exceptionsParent: 16,
+				exceptionsParent: 18,
 				
-				passChild: 1,
-				failChild: 28,
+				passChild: 5,
+				failChild: 30,
 				fatalChild: 0,
 				errorChild: 0,
 				warningChild: 0,
 				skipChild: 0,
 				infoChild: 0,
-				exceptionsChild: 28,
+				exceptionsChild: 30,
 				
 				passGrandChild: 0,
 				failGrandChild: 0,

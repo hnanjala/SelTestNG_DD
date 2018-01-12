@@ -413,6 +413,67 @@ public class AppGenericFunctions {
 	}
 	//*********************************************************************************************************************************//
 	
+	public int AddItemsToCartShipToAddressTwoDay(WebDriver driver,String[][] testData,int rowCount) throws Exception
+	{
+		wait=new WebDriverWait(driver,20);
+		Actions act=new Actions(driver);
+		act.moveToElement(driver.findElement(By.xpath("//div[contains(@id,'ds-itemtile-')]"))).build().perform();
+		
+	    //report.info("Able to login successfully");
+	    Thread.sleep(3000);
+		
+		addLine:
+		for(i=1;i<rowCount;i++)
+		{
+			if(i==1)
+			{
+			driver.findElement(objMap.getLocator("itemTileSearchByItem")).click();						
+			driver.findElement(objMap.getLocator("itemTileSearchByItem")).clear();
+			driver.findElement(objMap.getLocator("itemTileSearchByItem")).sendKeys(testData[i][1]);
+			driver.findElement(objMap.getLocator("itemTileSearchByItem")).click();
+			driver.findElement(objMap.getLocator("itemTileSearchByItemSearchIcon")).click();
+			}
+			else
+			{
+				wait.until(ExpectedConditions.elementToBeClickable(objMap.getLocator("itemSearchByKeyword")));
+				Thread.sleep(5000);
+				driver.findElement(objMap.getLocator("itemSearchByKeyword")).click();						
+				driver.findElement(objMap.getLocator("itemSearchByKeyword")).clear();
+				driver.findElement(objMap.getLocator("itemSearchByKeyword")).sendKeys(testData[i][1]);
+				driver.findElement(objMap.getLocator("itemSearchByKeyword")).click();	
+				driver.findElement(objMap.getLocator("itemSearchByKeywordSearchIcon")).click();
+			}
+
+			wait.until(ExpectedConditions.elementToBeClickable(objMap.getLocator("shipToAddressRadioButton")));
+			Thread.sleep(3000);			
+        driver.findElement(objMap.getLocator("shipToAddressRadioButton")).click();
+        
+
+ //   func.moveToElement(objMap.getLocator("addItemToCart"));
+        driver.findElement(objMap.getLocator("twoDayShippingRadioButton")).click();	
+    driver.findElement(objMap.getLocator("addItemToCart")).click();
+   // report.pass(func.extentLabel(testData[i][1]+" has been successfully added to the cart", ExtentColor.GREY));
+    Thread.sleep(5000);
+    wait.until(ExpectedConditions.elementToBeClickable(objMap.getLocator("itemSearchByKeyword")));
+
+		if (!((i+1)==rowCount))
+		{
+		if (testData[i][0]==testData[i+1][0])
+		{
+			System.out.println("Adding remaining items to the cart");
+			//report.info("Adding remaining items to the cart");
+			Thread.sleep(5000);
+			continue addLine;
+		}
+		}
+		else
+		{
+			Thread.sleep(5000);
+		}
+		}//for loop close
+		
+		return i;
+	}
 }
 
 
